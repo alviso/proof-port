@@ -23,7 +23,7 @@ so nobody can say the subject was written to suit the factory.
 | Port agent saw the cases | no | no (one phrase match, reviewed by hand: a coincidence) |
 | Test author agent | 8 min, 3.35 USD | 18 min, 8.54 USD |
 | Port agent | 70 min, 45.97 USD | 69 min, 44.55 USD |
-| Proof page | [runs/ZCRED/proof.html](runs/ZCRED/proof.html) | [runs/ZMM01/proof.html](runs/ZMM01/proof.html) |
+| Proof page | [ZCRED proof page](https://alviso.github.io/proof-port/runs/ZCRED/proof.html) | [ZMM01 proof page](https://alviso.github.io/proof-port/runs/ZMM01/proof.html) |
 
 Costs are Claude list prices as Claude Code reported them. Every difference is shown as it is; none was fixed after
 grading.

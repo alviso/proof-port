@@ -28,6 +28,7 @@ SUBJECTS = {"ZCRED": {"app": "http://127.0.0.1:8100/", "who": "mine, small: one 
                       "who": "a stranger's code: trymytoolkit/sap-retail-z-sandbox, MIT, Romain Hecquet"}}
 WEBGUI = "/sap/bc/gui/sap/its/webgui?sap-client=001&~transaction={tcode}"
 REPO = "https://github.com/alviso/proof-port"
+PAGES = "https://alviso.github.io/proof-port"
 LOCK = threading.Lock()
 STATE = {t: {"running": False, "phase": "", "results": [], "total": 0, "error": "", "broken": None,
              "started": 0, "finished": 0} for t in SUBJECTS}
@@ -70,7 +71,7 @@ def seal_info(tcode):
             "sealed_at": out[1][11:16] if len(out) > 1 else "?", "port_started": port_start,
             "last": {"passed": g.get("passed"), "cases": g.get("cases")},
             "mutants": {"caught": sum(1 for m in mut if m.get("caught")), "of": sum(1 for m in mut if "caught" in m)},
-            "proof": f"{REPO}/blob/main/runs/{tcode}/proof.html", "seal_commit": f"{REPO}/commit/{out[0]}" if out else REPO}
+            "proof": f"{PAGES}/runs/{tcode}/proof.html", "seal_commit": f"{REPO}/commit/{out[0]}" if out else REPO}
 
 
 def run_grade(tcode, limit):
