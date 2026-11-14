@@ -35,11 +35,13 @@ It was committed in <code>runs/ZCRED/SEAL.md</code> before the port agent starte
 next to it now. Check: <code>shasum -a 256 runs/ZCRED/sealed/bundle.json</code>.
 The old transaction answered every case as it did when sealed.</p>
 
+
+
 <h2>Every difference</h2>
 <div class="wrap"><table><tr><th>Case</th><th>What it checks</th><th>Difference</th></tr><tr><td>c097</td><td>A letter in the middle of the number</td><td>The old screen said &#x27;Enter a numeric value&#x27;, &#x27;Formatting error in the field GV_NEW_LIMIT; see next message&#x27;; the new app said &#x27;Formatting error in the field GV_NEW_LIMIT; see next message&#x27;, &#x27;Input must be in the format _.___.___.___.__~,__&#x27;.</td></tr></table></div>
 
 <h2>Mutants</h2>
-<div class="wrap"><table><tr><th>Change to the port</th><th>Result</th></tr><tr><td>line 189: &#x27;&lt;&#x27; became &#x27;&gt;=&#x27;</td><td>caught by 77 cases</td></tr><tr><td>line 60: the check &#x27;IF sy-subrc &lt;&gt; 0&#x27; switched off</td><td>caught by 16 cases</td></tr><tr><td>line 65: message text &#x27;Customer not found&#x27; became &#x27;Customer not founx&#x27;</td><td>caught by 16 cases</td></tr></table></div>
+<div class="wrap"><table><tr><th>Change to the port</th><th>Result</th></tr><tr><td>line 189: &#x27;&lt;&#x27; became &#x27;&gt;=&#x27;</td><td>caught by 76 cases</td></tr><tr><td>line 60: the check &#x27;IF sy-subrc &lt;&gt; 0&#x27; switched off</td><td>caught by 15 cases</td></tr><tr><td>line 65: message text &#x27;Customer not found&#x27; became &#x27;Customer not founx&#x27;</td><td>caught by 15 cases</td></tr></table></div>
 
 <h2>What was checked and what wasn't</h2>
 <p>Checked, for every case: the error messages (by text) and every row of ZCR_CHANGELOG, ZCR_CUSTOMER, ZCR_LIMIT_RULE after the old screen and after the new app, each from the same starting data.
