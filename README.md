@@ -38,6 +38,9 @@ credentials in an env file outside the repo (`SAP_ENV`). The agents are Claude C
     python3 factory/mutate.py ZCRED               # break the port on purpose, grade each break
     python3 factory/proof.py ZCRED                # stage 6: runs/ZCRED/proof.html
     python3 factory/app.py ZCRED                  # the new Fiori Elements app on http://127.0.0.1:8100/
+    python3 factory/app.py ZMM01 8102
+    python3 factory/stage.py                      # the stage page on http://127.0.0.1:8200/
+    python3 factory/sofa.py ZCRED [--tests]       # record the run in 8090's Software Factory
 
 `factory/oracle.py` (stage 2) is used by all of them: it replays screen inputs through the old transaction by batch
 input and puts the tables back after every case.

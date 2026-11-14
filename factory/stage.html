@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof Port</title>
+<style>
+:root {
+  --bg: #111213; --panel: #1a1b1d; --line: #2c2e31; --fg: #ececea; --muted: #9a9b97;
+  --ok: #3fbf7f; --bad: #f0645a; --wait: #3a3c40; --accent: #8ab4ff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+  font: 15px/1.45 -apple-system, system-ui, "Segoe UI", sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1680px; margin: 0 auto; padding: 14px 16px 24px; }
+header { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+h1 { font-size: 22px; margin: 0; letter-spacing: .2px; }
+.tabs button { background: none; border: 1px solid var(--line); color: var(--muted); padding: 5px 12px;
+  border-radius: 7px; font: inherit; cursor: pointer; margin-right: 6px; }
+.tabs button.on { color: var(--fg); border-color: var(--fg); }
+.who { color: var(--muted); }
+.seal { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 10px 0 12px; padding: 10px 14px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; font-size: 14px; }
+.seal b { font-weight: 600; }
+.seal code { font-size: 13px; }
+.screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pane { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  display: flex; flex-direction: column; }
+.pane .label { padding: 8px 12px; font-size: 14px; border-bottom: 1px solid var(--line); display: flex;
+  justify-content: space-between; gap: 10px; }
+.pane .label span { color: var(--muted); }
+.pane iframe { border: 0; width: 100%; height: 42vh; min-height: 300px; background: #fff; }
+.grade { margin-top: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 14px; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.controls button { font: inherit; font-weight: 600; padding: 9px 16px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line); background: #24262a; color: var(--fg); }
+.controls button.primary { background: var(--fg); color: #111; border-color: var(--fg); }
+.controls button.danger { border-color: var(--bad); color: var(--bad); }
+.controls button:disabled { opacity: .4; cursor: default; }
+.state { margin-left: auto; font-size: 14px; }
+.state.ok { color: var(--ok); } .state.bad { color: var(--bad); }
+.count { display: flex; align-items: baseline; gap: 14px; margin: 14px 0 10px; }
+.count .big { font-size: 40px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.count .phase { color: var(--muted); }
+.grid { display: flex; flex-wrap: wrap; gap: 4px; }
+.grid i { width: 16px; height: 16px; border-radius: 3px; background: var(--wait); display: block; }
+.grid i.ok { background: var(--ok); } .grid i.bad { background: var(--bad); }
+.fails { margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; }
+.fails li { padding: 5px 0; border-top: 1px solid var(--line); }
+.fails li b { color: var(--bad); margin-right: 8px; }
+.err { color: var(--bad); margin-top: 8px; }
+@media (max-width: 900px) { .screens { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Proof Port</h1>
+    <div class="tabs"><button data-t="ZCRED">ZCRED</button><button data-t="ZMM01">ZMM01</button></div>
+    <div class="who" id="who"></div>
+  </header>
+
+  <div class="seal" id="seal">Loading…</div>
+
+  <div class="screens">
+    <div class="pane">
+      <div class="label"><b id="oldLabel">Old</b><span>SAP GUI, the judge</span></div>
+      <iframe id="old" title="The old transaction in SAP GUI"></iframe>
+    </div>
+    <div class="pane">
+      <div class="label"><b>New</b><span>RAP, OData V4, Fiori Elements, written by an agent</span></div>
+      <iframe id="new" title="The new app"></iframe>
+    </div>
+  </div>
+
+  <div class="grade">
+    <div class="controls">
+      <button class="primary" id="all">Grade every sealed case</button>
+      <button id="some">Grade the first 40</button>
+      <button class="danger" id="break">Break the port</button>
+      <button id="fix">Put it back</button>
+      <div class="state" id="portState"></div>
+    </div>
+    <div class="count"><span class="big" id="big">Ready</span><span class="phase" id="phase"></span></div>
+    <div class="grid" id="grid"></div>
+    <ul class="fails" id="fails"></ul>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let subject = "ZCRED", polling = null, info = null;
+
+async function api(path, method = "GET") {
+  const r = await fetch(`${path}${path.includes("?") ? "&" : "?"}t=${subject}`, { method });
+  const body = await r.json();
+  if (!r.ok) throw new Error(body.error || r.statusText);
+  return body;
+}
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+function showPort(broken) {
+  const el = $("portState");
+  el.className = "state " + (broken ? "bad" : "ok");
+  el.textContent = broken ? `Broken on purpose: ${broken}` : "The port is as published";
+}
+
+async function loadSubject(t) {
+  subject = t;
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  $("err").textContent = "";
+  try {
+    info = await api("/api/state");
+  } catch (e) { $("err").textContent = e.message; return; }
+  $("who").textContent = info.who;
+  $("oldLabel").textContent = `Old: ${t}`;
+  $("seal").innerHTML =
+    `<span>Cases <b>sealed ${esc(info.sealed_at)}</b> in commit <a href="${esc(info.seal_commit)}" target="_blank">${esc(info.commit)}</a></span>` +
+    `<span>SHA-256 <code>${esc(info.digest.slice(0, 16))}…</code></span>` +
+    `<span>port agent <b>started ${esc(info.port_started)}</b>, walled off from them</span>` +
+    `<span>last full grade <b>${info.last.passed} of ${info.last.cases}</b></span>` +
+    `<span>mutants caught <b>${info.mutants.caught} of ${info.mutants.of}</b></span>` +
+    `<span><a href="${esc(info.proof)}" target="_blank">proof page</a></span>`;
+  if ($("old").dataset.t !== t) { $("old").src = info.webgui; $("old").dataset.t = t; }
+  if ($("new").dataset.t !== t) { $("new").src = info.app; $("new").dataset.t = t; }
+  showPort(info.broken);
+  render(await api("/api/progress"));
+}
+
+function render(p) {
+  const grid = $("grid");
+  const n = Math.max(p.total, p.results.length);
+  if (grid.children.length !== n) grid.innerHTML = "<i></i>".repeat(n);
+  p.results.forEach((r, i) => {
+    const sq = grid.children[i];
+    sq.className = r.pass ? "ok" : "bad";
+    sq.title = `${r.id}: ${r.intent}` + (r.diffs.length ? `\n${r.diffs.join("\n")}` : "");
+  });
+  for (let i = p.results.length; i < n; i++) { grid.children[i].className = ""; grid.children[i].title = ""; }
+  const same = p.results.filter(r => r.pass).length;
+  if (p.running || p.results.length) {
+    $("big").textContent = p.phase === "asking the old screen" ? "…" :
+      `${same} of ${p.running ? p.results.length : p.total} the same`;
+  }
+  const secs = p.started ? Math.round(((p.running ? Date.now() / 1000 : p.finished) - p.started)) : 0;
+  $("phase").textContent = p.running ? `${p.phase}, ${p.results.length} of ${p.total} graded, ${secs} s` :
+    (p.phase === "done" ? `${p.total} cases through the old screen and the new app, ${secs} s` : "");
+  $("fails").innerHTML = p.results.filter(r => !r.pass).map(r =>
+    `<li><b>${esc(r.id)}</b>${esc(r.intent)}: ${esc(r.diffs.join("; "))}</li>`).join("");
+  $("err").textContent = p.error || "";
+  ["all", "some", "break", "fix"].forEach(id => $(id).disabled = p.running);
+  if (p.broken !== undefined) showPort(p.broken);
+}
+
+async function poll() {
+  const p = await api("/api/progress");
+  render(p);
+  if (!p.running) { clearInterval(polling); polling = null; }
+}
+
+async function start(n) {
+  $("err").textContent = "";
+  try {
+    await api(`/api/grade?n=${n}`, "POST");
+    $("big").textContent = "…";
+    polling = polling || setInterval(poll, 400);
+  } catch (e) { $("err").textContent = e.message; }
+}
+
+async function act(path, label) {
+  $("err").textContent = "";
+  const el = $("portState");
+  el.className = "state"; el.textContent = label;
+  ["all", "some", "break", "fix"].forEach(id => $(id).disabled = true);
+  try {
+    const r = await api(path, "POST");
+    showPort(r.broken);
+  } catch (e) { $("err").textContent = e.message; }
+  ["all", "some", "break", "fix"].forEach(id => $(id).disabled = false);
+}
+
+$("all").onclick = () => start(0);
+$("some").onclick = () => start(40);
+$("break").onclick = () => act("/api/break", "Breaking one line of the port and activating it…");
+$("fix").onclick = () => act("/api/fix", "Putting the published code back…");
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => loadSubject(b.dataset.t));
+loadSubject(new URLSearchParams(location.search).get("t") || "ZCRED");
+</script>
+</body>
+</html>

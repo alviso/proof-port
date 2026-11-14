@@ -161,7 +161,9 @@ class RecordingClient(odata.Client):
         return r
 
 
-def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G", s=None, sealed_answers=None):
+def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G", s=None, sealed_answers=None,
+          on_case=None):
+    """on_case, if given, is called with each case's result as soon as it is graded (the stage page uses it)."""
     s = s or sap.Sap()
     # One set of helper reports per transaction, so runs for different transactions can go at the same time.
     report_name, oracle_report = f"{report_name}_{tcode}"[:30], f"{oracle_report}_{tcode}"[:30]
@@ -197,6 +199,8 @@ def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G",
         results.append({"id": case["id"], "intent": case.get("intent", ""), "pass": not diffs, "diffs": diffs,
                         "old_messages": errors(old[case["id"]]["messages"]), "new_messages": client.seen,
                         "drift": drift})
+        if on_case:
+            on_case(results[-1])
     t_new = time.time() - t1
     after = read_tables(s, fields)
     clean = all(normalise_rows(after[t], vol[t]) == normalise_rows(baseline[t], vol[t]) for t in fields)
