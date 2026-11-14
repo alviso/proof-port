@@ -163,6 +163,8 @@ class RecordingClient(odata.Client):
 
 def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G", s=None, sealed_answers=None):
     s = s or sap.Sap()
+    # One set of helper reports per transaction, so runs for different transactions can go at the same time.
+    report_name, oracle_report = f"{report_name}_{tcode}"[:30], f"{oracle_report}_{tcode}"[:30]
     fields = table_fields(tcode)
     vol = volatile_fields(tcode)
     os.environ["ORACLE_REPORT"] = oracle_report

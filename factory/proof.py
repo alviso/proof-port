@@ -99,6 +99,9 @@ def main(tcode):
     cost = lambda e: f"{e.get('total_cost_usd', 0):.2f} USD, {round(e.get('duration_ms', 0) / 60000)} min" if e else "?"
     limits = "".join(f"<li>{esc(x)}</li>" for x in ORACLE_LIMITS)
     leaks = chk.get("leaks", [])
+    reviewed = chk.get("reviewed", [])
+    seen = "yes" if leaks and not reviewed else ("no, after review" if leaks else "no")
+    review_html = "".join(f"<li>{esc(r['finding'])}. Judged: {esc(r['judgment'])}.</li>" for r in reviewed)
     forbidden = chk.get("forbidden_calls", [])
 
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -128,7 +131,7 @@ code {{ font-size:13px; word-break:break-all; }}
 <div class="grid" style="margin-top:20px">
  <div class="card"><span class="muted">Mutants caught</span><b>{caught} of {counted}</b>edits that break the port on purpose</div>
  <div class="card"><span class="muted">Sealed</span><b>{esc(seal_commit.split('T')[1][:5] if 'T' in seal_commit else '?')} local</b>commit {esc(seal_commit.split(' ')[-1])}; port started {esc(port_start[11:16])} local</div>
- <div class="card"><span class="muted">Port agent saw the cases</span><b class="{'bad' if leaks else 'ok'}">{'yes' if leaks else 'no'}</b>transcript searched for all {chk.get('sealed_cases', '?')} cases</div>
+ <div class="card"><span class="muted">Port agent saw the cases</span><b class="{'bad' if seen == 'yes' else 'ok'}">{seen}</b>transcript searched for all {chk.get('sealed_cases', '?')} cases</div>
  <div class="card"><span class="muted">Tables after grading</span><b class="{'ok' if g.get('tables_restored') else 'bad'}">{'as before' if g.get('tables_restored') else 'changed'}</b>every case started from the same data</div>
 </div>
 
@@ -137,6 +140,8 @@ code {{ font-size:13px; word-break:break-all; }}
 It was committed in <code>runs/{esc(tcode)}/SEAL.md</code> before the port agent started; the bundle itself is published
 next to it now. Check: <code>shasum -a 256 runs/{esc(tcode)}/sealed/bundle.json</code>.
 {f'<br>{g["drift"]} cases answered differently on the old system than when sealed.' if g.get('drift') else 'The old transaction answered every case as it did when sealed.'}</p>
+
+{f'<h2>What the leak check flagged</h2><ul>{review_html}</ul>' if reviewed else ''}
 
 <h2>Every difference</h2>
 {'<p class="ok">None.</p>' if not fails else f'<div class="wrap"><table><tr><th>Case</th><th>What it checks</th><th>Difference</th></tr>{rows}</table></div>'}

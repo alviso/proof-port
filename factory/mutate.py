@@ -63,6 +63,8 @@ def main(tcode, limit=3):
     bundle_path = os.path.join(ROOT, "runs", tcode, "sealed", "bundle.json")
     with open(bundle_path) as f:
         bundle = json.load(f)
+    with open(os.path.join(ROOT, "runs", tcode, "grade.json")) as f:
+        baseline_fails = {r["id"] for r in json.load(f)["results"] if not r["pass"]}
     results = []
     for cls in behavior_classes(tcode):
         original = rap.get(s, "CLAS", cls, "implementations")
@@ -80,9 +82,11 @@ def main(tcode, limit=3):
                     entry["errors"] = errs[:3]
                 else:
                     report = grade.grade(tcode, bundle["cases"], "ZPP_RESTORE", "ZPP_ORACLE_G", s)
-                    entry["failing_cases"] = report["failed"]
-                    entry["caught"] = report["failed"] > 0
-                    entry["examples"] = [r["id"] for r in report["results"] if not r["pass"]][:8]
+                    # Count only cases the break newly fails: ones that already differ without it prove nothing.
+                    broken = [r["id"] for r in report["results"] if not r["pass"] and r["id"] not in baseline_fails]
+                    entry["failing_cases"] = len(broken)
+                    entry["caught"] = bool(broken)
+                    entry["newly_failing"] = broken
             finally:
                 rap.put(s, "CLAS", cls, original, part="implementations")
                 back = [m for m in rap.activate(s, [("CLAS", cls)]) if m.startswith(("E", "A"))]
