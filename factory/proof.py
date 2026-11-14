@@ -127,7 +127,7 @@ code {{ font-size:13px; word-break:break-all; }}
 
 <div class="grid" style="margin-top:20px">
  <div class="card"><span class="muted">Mutants caught</span><b>{caught} of {counted}</b>edits that break the port on purpose</div>
- <div class="card"><span class="muted">Sealed</span><b>{esc(seal_commit.split('T')[1][:5] if 'T' in seal_commit else '?')} UTC{esc(seal_commit[25:]) if len(seal_commit) > 25 else ''}</b>commit {esc(seal_commit.split(' ')[-1])}; port started {esc(port_start[11:16])} local</div>
+ <div class="card"><span class="muted">Sealed</span><b>{esc(seal_commit.split('T')[1][:5] if 'T' in seal_commit else '?')} local</b>commit {esc(seal_commit.split(' ')[-1])}; port started {esc(port_start[11:16])} local</div>
  <div class="card"><span class="muted">Port agent saw the cases</span><b class="{'bad' if leaks else 'ok'}">{'yes' if leaks else 'no'}</b>transcript searched for all {chk.get('sealed_cases', '?')} cases</div>
  <div class="card"><span class="muted">Tables after grading</span><b class="{'ok' if g.get('tables_restored') else 'bad'}">{'as before' if g.get('tables_restored') else 'changed'}</b>every case started from the same data</div>
 </div>
@@ -156,7 +156,7 @@ next to it now. Check: <code>shasum -a 256 runs/{esc(tcode)}/sealed/bundle.json<
  <div class="card"><span class="muted">Grading</span><b>{g['seconds_old']} s + {g['seconds_new']} s</b>old screen, then new app</div>
 </div>
 <p class="muted">Files: <code>runs/{esc(tcode)}/extract/</code> (what the factory read), <code>sealed/</code> (cases and answers),
-<code>port/</code> (the new objects' sources, driver, the agent's report), <code>logs/</code> and <code>work/</code> (both agents' transcripts),
+<code>port/</code> (the new objects' sources, driver, the agent's report), <code>transcripts/</code> (both agents, cleaned of the machine's tool list),
 <code>grade.json</code>, <code>mutants.json</code>.</p>
 </main></body></html>"""
     out = os.path.join(run, "proof.html")
