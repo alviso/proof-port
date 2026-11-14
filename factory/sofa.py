@@ -3,7 +3,7 @@
 Runs Claude Code headless with the brief in factory/briefs/sofa.md and only the Software Factory MCP server of the
 Proof Port project. Its transcript goes to runs/<TCODE>/logs/sofa_transcript.jsonl.
 
-    python3 factory/sofa.py ZCRED [model]
+    python3 factory/sofa.py ZCRED [model] [--tests]     --tests: only the test cases and a test run
 """
 import json
 import os
@@ -14,15 +14,15 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SERVER = "software-factory-proof-port"
 
 
-def main(tcode, model="sonnet"):
-    with open(os.path.join(ROOT, "factory", "briefs", "sofa.md")) as f:
+def main(tcode, model="sonnet", tests_only=False):
+    with open(os.path.join(ROOT, "factory", "briefs", "sofa_tests.md" if tests_only else "sofa.md")) as f:
         brief = f.read().replace("{TCODE}", tcode)
     allowed = ",".join(["Read", "Glob", "Grep", f"mcp__{SERVER}", "Bash(curl *)", "Bash(ls *)", "Bash(wc *)"])
     cmd = ["claude", "-p", brief, "--model", model, "--allowedTools", allowed,
            "--output-format", "stream-json", "--verbose", "--max-turns", "300"]
     logs = os.path.join(ROOT, "runs", tcode, "logs")
     os.makedirs(logs, exist_ok=True)
-    log = os.path.join(logs, "sofa_transcript.jsonl")
+    log = os.path.join(logs, "sofa_tests_transcript.jsonl" if tests_only else "sofa_transcript.jsonl")
     with open(log, "w") as out:
         proc = subprocess.run(cmd, cwd=ROOT, stdout=out, stderr=subprocess.STDOUT)
     with open(log) as f:
@@ -39,4 +39,5 @@ def main(tcode, model="sonnet"):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1].upper(), *sys.argv[2:]))
+    args = [a for a in sys.argv[2:] if not a.startswith("--")]
+    sys.exit(main(sys.argv[1].upper(), *args, tests_only="--tests" in sys.argv))
