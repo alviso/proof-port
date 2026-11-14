@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Article',
+    typeNamePlural: 'Articles',
+    title: { value: 'ArticleId' },
+    description: { value: 'ArticleName' }
+  }
+}
+annotate view ZPP_MM_R_ARTICLE with
+{
+  @UI.facet: [
+    { id: 'Basic',    purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE,
+      label: 'Basic data',   position: 10 },
+    { id: 'Price',    purpose: #STANDARD, type: #FIELDGROUP_REFERENCE,
+      label: 'Price',        position: 20, targetQualifier: 'PriceGroup' },
+    { id: 'Variants', purpose: #STANDARD, type: #LINEITEM_REFERENCE,
+      label: 'Variants',     position: 30, targetElement: '_Variant' }
+  ]
+
+  @UI.lineItem:       [ { position: 10, importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10 } ]
+  ArticleId;
+
+  @UI.lineItem:       [ { position: 20, importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  ArticleName;
+
+  @UI.lineItem:       [ { position: 30, importance: #HIGH } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  ArticleType;
+
+  @UI.identification: [ { position: 40 } ]
+  BaseUom;
+
+  @UI.lineItem:       [ { position: 40, importance: #MEDIUM } ]
+  @UI.identification: [ { position: 50 } ]
+  ActiveFlag;
+
+  @UI.lineItem:       [ { position: 50, importance: #HIGH } ]
+  @UI.fieldGroup:     [ { position: 10, qualifier: 'PriceGroup' } ]
+  Price;
+
+  @UI.lineItem:       [ { position: 60, importance: #MEDIUM } ]
+  @UI.fieldGroup:     [ { position: 20, qualifier: 'PriceGroup' } ]
+  Currency;
+
+  @UI.fieldGroup:     [ { position: 30, qualifier: 'PriceGroup' } ]
+  GenericArticleId;
+
+  @UI.lineItem:       [ { position: 70, importance: #LOW } ]
+  @UI.fieldGroup:     [ { position: 40, qualifier: 'PriceGroup' } ]
+  Ean;
+
+  @UI.hidden: true
+  Color;
+
+  @UI.hidden: true
+  ArtSize;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedOn;
+
+  @UI.hidden: true
+  ChangedBy;
+
+  @UI.hidden: true
+  ChangedOn;
+
+  // Screen state of the old transaction, not article data: never shown.
+  @UI.hidden: true
+  SaveTab;
+}
+

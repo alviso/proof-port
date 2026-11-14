@@ -1,0 +1,803 @@
+[
+ {"id": "p001", "intent": "create a minimal article, saving from the price tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Test one", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "10,50"}, "ok": "SAVE"}
+  ]},
+ {"id": "p002", "intent": "no article id typed on the first screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": ""}, "ok": "GO"}
+  ]},
+ {"id": "p003", "intent": "save with no name, from the basic data tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p004", "intent": "name typed but no article type, from the basic data tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "No type"}, "ok": "SAVE"}
+  ]},
+ {"id": "p005", "intent": "price typed as zero, saved from the price tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Zero price", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "0"}, "ok": "SAVE"}
+  ]},
+ {"id": "p006", "intent": "no name and a zero price, saved from the price tab: the price is reported first",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "0"}, "ok": "SAVE"}
+  ]},
+ {"id": "p007", "intent": "no name and a zero price, saved from the basic data tab: the name is reported first",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "0"}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p008", "intent": "one variant with a good EAN, saved from the variants tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "With variant", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "99,99"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-COLOR(01)": "red", "ZRET_S_ART_VAR-SIZE_CODE(01)": "M", "ZRET_S_ART_VAR-EAN(01)": "1234567890123", "ZRET_S_ART_VAR-PRICE(01)": "12,34"}, "ok": "SAVE"}
+  ]},
+ {"id": "p009", "intent": "a variant whose EAN is too short",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Bad ean", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "123"}, "ok": "SAVE"}
+  ]},
+ {"id": "p010", "intent": "a first variant row with an EAN and no identifier",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "A10"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "No vid", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-EAN(01)": "1234567890123"}, "ok": "SAVE"}
+  ]},
+ {"id": "p011", "intent": "a third variant row with an EAN and no identifier",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "E4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Row two bad", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(02)": "2222222222222"}, "ok": "SAVE"}
+  ]},
+ {"id": "p012", "intent": "price typed with a thousands separator",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Thousands", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1.234,56"}, "ok": "SAVE"}
+  ]},
+ {"id": "p013", "intent": "price typed with a trailing full stop",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Dot ten", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "10."}, "ok": "SAVE"}
+  ]},
+ {"id": "p014", "intent": "price typed with a trailing minus",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Minus five", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5-"}, "ok": "SAVE"}
+  ]},
+ {"id": "p015", "intent": "price typed as letters",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Not num", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "abc"}, "ok": "SAVE"}
+  ]},
+ {"id": "p016", "intent": "an article type the list box offers but the domain does not",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Food item", "ZRET_S_ART-ARTICLE_TYPE": "FOOD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p017", "intent": "an article type the domain has but the list box does not offer",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Accessory", "ZRET_S_ART-ARTICLE_TYPE": "ACCE"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p018", "intent": "an article type that is nonsense",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Nonsense", "ZRET_S_ART-ARTICLE_TYPE": "ZZZZ"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p019", "intent": "base unit cleared with an exclamation mark, saved from the price tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Bang", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "!"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-CURRENCY": "!"}, "ok": "SAVE"}
+  ]},
+ {"id": "p020", "intent": "base unit cleared, saved from the basic data tab: the tab fills it again",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom tab1", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "!"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p021", "intent": "currency cleared on the price tab, saved from the basic data tab: it stays empty, and so does the variant's",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Cur tab1", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-CURRENCY": "!"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p022", "intent": "base unit cleared, saved from the variants tab: no tab fills it",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom tab3", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "!"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p023", "intent": "the active flag cleared and a generic article id typed",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "D9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Inactive", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-ACTIVE_FLAG": ""}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-GENERIC_ARTICLE_ID": "GEN1"}, "ok": "SAVE"}
+  ]},
+ {"id": "p024", "intent": "an active flag that is not a domain value",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Flag y", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-ACTIVE_FLAG": "Y"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p025", "intent": "a base unit and a currency typed by hand",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "E1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Units", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "KG"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-CURRENCY": "USD"}, "ok": "SAVE"}
+  ]},
+ {"id": "p026", "intent": "three variants, the third with letters in its EAN",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "E2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Three var", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "",
+       "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2", "ZRET_S_ART_VAR-EAN(02)": "9876543210987",
+       "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3", "ZRET_S_ART_VAR-EAN(03)": "12345678901AB"}, "ok": "SAVE"}
+  ]},
+ {"id": "p027", "intent": "variant rows one and three filled, row two left empty",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "E3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Gap rows", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+       "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3", "ZRET_S_ART_VAR-EAN(03)": "1111111111111"}, "ok": "SAVE"}
+  ]},
+ {"id": "p028", "intent": "all five variant rows filled",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Five rows", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+       "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3", "ZRET_S_ART_VAR-VARIANT_ID(04)": "V4",
+       "ZRET_S_ART_VAR-VARIANT_ID(05)": "V5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p029", "intent": "typing into a sixth variant row the table control has no line for",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Many rows", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-VARIANT_ID(06)": "V6"}, "ok": "SAVE"}
+  ]},
+ {"id": "p030", "intent": "Add makes a sixth variant row, which can then be typed into",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Added row", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {}, "ok": "ADD"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-VARIANT_ID(06)": "V6"}, "ok": "SAVE"}
+  ]},
+ {"id": "p031", "intent": "Add twice, then a seventh row that still does not exist",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Two adds", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {}, "ok": "ADD"},
+    {"screen": "0200", "fields": {}, "ok": "ADD"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(06)": "V6", "ZRET_S_ART_VAR-VARIANT_ID(07)": "V7"}, "ok": "SAVE"}
+  ]},
+ {"id": "p032", "intent": "a marked variant row deleted before saving",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Delete row", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+       "ZRET_S_ART_VAR-MARK(01)": "X"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p033", "intent": "Delete pressed with no row marked",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "No marks", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p034", "intent": "an article id longer than the field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "ABCDEFGHIJKLMNOPQRSTUVWXY"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Long id", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p035", "intent": "a generic article id longer than the field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Gen long", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-GENERIC_ARTICLE_ID": "ABCDEFGHIJKLMNO"}, "ok": "SAVE"}
+  ]},
+ {"id": "p036", "intent": "the smallest price the field can hold",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "One cent", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "0,01"}, "ok": "SAVE"}
+  ]},
+ {"id": "p037", "intent": "the largest price the field can hold",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Huge", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "99.999.999.999,99"}, "ok": "SAVE"}
+  ]},
+ {"id": "p038", "intent": "an article id typed in lower case",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "g4x"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lower id", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p039", "intent": "a negative variant price",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Zeros ean", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "0000000000123",
+       "ZRET_S_ART_VAR-PRICE(01)": "3-"}, "ok": "SAVE"}
+  ]},
+ {"id": "p040", "intent": "an EAN of fourteen digits",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Fourteen", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "12345678901234"}, "ok": "SAVE"}
+  ]},
+ {"id": "p041", "intent": "an EAN of thirteen characters with a space among them",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Ean space", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "123456 890123"}, "ok": "SAVE"}
+  ]},
+ {"id": "p042", "intent": "saving from the variants tab with nothing on the basic data tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"}, "ok": "SAVE"}
+  ]},
+ {"id": "p043", "intent": "a name of nothing but spaces",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "   ", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p044", "intent": "a name cleared with an exclamation mark",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "G9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "!", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p045", "intent": "leaving the first screen at once",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "H1"}, "ok": "EXIT"}
+  ]},
+ {"id": "p046", "intent": "Cancel pressed on the second screen without touching it",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "H2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "CANC"}
+  ]},
+ {"id": "p047", "intent": "Back pressed on the second screen after typing",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Going back", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "BACK"}
+  ]},
+ {"id": "p048", "intent": "Back pressed after a key press the program had already seen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Changed", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "ENTER"},
+    {"screen": "0200", "fields": {}, "ok": "BACK"}
+  ]},
+ {"id": "p049", "intent": "Enter pressed on the second screen before saving",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "F6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Enter first", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "ENTER"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p050", "intent": "typing a price field while the basic data tab is the open one",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "K7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "0"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p051", "intent": "a price with one decimal place",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "One dec", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1234,5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p052", "intent": "a price with a thousands separator and no decimals",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Thou only", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1.234"}, "ok": "SAVE"}
+  ]},
+ {"id": "p053", "intent": "a price with a leading plus",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Plus five", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "+5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p054", "intent": "variant identifier, colour and size typed in lower case",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lower var", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "v1", "ZRET_S_ART_VAR-COLOR(01)": "deep blue", "ZRET_S_ART_VAR-SIZE_CODE(01)": "xl"}, "ok": "SAVE"}
+  ]},
+ {"id": "p055", "intent": "an article type typed in lower case",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lower type", "ZRET_S_ART-ARTICLE_TYPE": "hard"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p056", "intent": "two variants with an EAN each: the header takes the first",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Head ean", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "1111111111111",
+       "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2", "ZRET_S_ART_VAR-EAN(02)": "2222222222222"}, "ok": "SAVE"}
+  ]},
+ {"id": "p057", "intent": "a variant row with only a mark on it",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "L9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Mark only", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-MARK(02)": "X"}, "ok": "SAVE"}
+  ]},
+ {"id": "p058", "intent": "a variant row with only a colour on it",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Colour only", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-COLOR(01)": "green"}, "ok": "SAVE"}
+  ]},
+ {"id": "p059", "intent": "a name of exactly sixty characters",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "123456789012345678901234567890123456789012345678901234567890", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p060", "intent": "two articles in a row: the save ends the transaction and the second never happens",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "C1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Cee one", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"},
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "C2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Cee two", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "7"}, "ok": "SAVE"}
+  ]},
+ {"id": "p061", "intent": "saving the same article twice: the second save never happens either",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "B1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Name one", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"},
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "B1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Name two"}, "ok": "SAVE"}
+  ]},
+ {"id": "p062", "intent": "a variant price typed with a thousands separator",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Var price", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-PRICE(01)": "2.500,75"}, "ok": "SAVE"}
+  ]},
+ {"id": "p063", "intent": "a variant identifier longer than its field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Var long", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "VARIANT1"}, "ok": "SAVE"}
+  ]},
+ {"id": "p064", "intent": "an EAN of thirteen zeros",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Zero ean", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "0000000000000"}, "ok": "SAVE"}
+  ]},
+ {"id": "p065", "intent": "the price tab visited and left without typing anything",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "M6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Tab walk", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p066", "intent": "price with three decimals",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Three dec", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1,234"}, "ok": "SAVE"}
+  ]},
+ {"id": "p067", "intent": "price with wrong thousands grouping",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Bad group", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1.23.456"}, "ok": "SAVE"}
+  ]},
+ {"id": "p068", "intent": "price with a leading space",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lead space", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": " 5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p069", "intent": "price with twelve integer digits, one too many for the field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Overflow", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "999.999.999.999"}, "ok": "SAVE"}
+  ]},
+ {"id": "p070", "intent": "EAN with a leading space and thirteen digits",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Ean lead", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": " 1234567890123"}, "ok": "SAVE"}
+  ]},
+ {"id": "p071", "intent": "a failed save followed by a corrected save in the same session",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "SAVE"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Fixed now"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p072", "intent": "Save pressed on the first screen, where it means nothing",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W7"}, "ok": "SAVE"},
+    {"screen": "0100", "fields": {}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "After save", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p073", "intent": "Enter instead of the Go button on the first screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W8"}, "ok": "ENTER"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "By enter", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p074", "intent": "the active flag check box typed in lower case",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "W9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Flag lower", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-ACTIVE_FLAG": "x"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p075", "intent": "all variant rows marked and deleted, then saved",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "All gone", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-MARK(01)": "X",
+       "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2", "ZRET_S_ART_VAR-MARK(02)": "X"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p076", "intent": "a bad EAN on the fifth variant row",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Row five", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(05)": "V5", "ZRET_S_ART_VAR-EAN(05)": "99"}, "ok": "SAVE"}
+  ]},
+ {"id": "p077", "intent": "walking all three tabs, typing on each, before saving",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(02)": "V2"}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Tab walk two", "ZRET_S_ART-ARTICLE_TYPE": "CONS"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "12,00"}, "ok": "SAVE"}
+  ]},
+ {"id": "p078", "intent": "an article id of exactly twenty characters",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "ABCDEFGHIJKLMNOPQRST"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Twenty", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p079", "intent": "a generic article id of exactly ten characters",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Gen ten", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-GENERIC_ARTICLE_ID": "ABCDEFGHIJ"}, "ok": "SAVE"}
+  ]},
+ {"id": "p080", "intent": "an EAN filling all eighteen characters of the field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Ean long", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "123456789012345678"}, "ok": "SAVE"}
+  ]},
+ {"id": "p081", "intent": "a variant row with only a size on it",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Size only", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-SIZE_CODE(03)": "L"}, "ok": "SAVE"}
+  ]},
+ {"id": "p082", "intent": "an article name with accented characters",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Café crème brûlée", "ZRET_S_ART-ARTICLE_TYPE": "CONS"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p083", "intent": "price typed with leading zeros",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lead zero", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "00007,50"}, "ok": "SAVE"}
+  ]},
+ {"id": "p084", "intent": "Add, then Delete with nothing marked, then save",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "X9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Add del", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"}, "ok": "ADD"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(06)": "V6"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p085", "intent": "a currency of nonsense characters, which the field does not check",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Cur bad", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5", "ZRET_S_ART-CURRENCY": "ZZZZZ"}, "ok": "SAVE"}
+  ]},
+ {"id": "p086", "intent": "base unit typed as the internal code rather than the English one",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "U1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom st", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "ST"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p087", "intent": "base unit typed in the English spelling",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "U2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom pc", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "PC"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p088", "intent": "a base unit that is not a unit at all",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "U3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom bad", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "ZZZ"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p089", "intent": "base unit typed in lower case",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "U5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom lower", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "pc"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p090", "intent": "a price of only a decimal part",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Frac only", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": ",50"}, "ok": "SAVE"}
+  ]},
+ {"id": "p091", "intent": "a price of a lone comma, which the field reads as nothing",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Comma", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": ","}, "ok": "SAVE"}
+  ]},
+ {"id": "p092", "intent": "a price with two commas",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Two commas", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1,2,3"}, "ok": "SAVE"}
+  ]},
+ {"id": "p093", "intent": "Add pressed while the basic data tab is open, so the button is not there",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Add on tab1", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "ADD"},
+    {"screen": "0200", "fields": {}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(06)": "V6"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p094", "intent": "Delete pressed while the price tab is open, with a row marked",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Del on tab2", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-MARK(01)": "X"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p095", "intent": "a missing identifier on row one and a bad EAN on row two",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Both bad", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-EAN(01)": "1111111111111",
+       "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2", "ZRET_S_ART_VAR-EAN(02)": "22"}, "ok": "SAVE"}
+  ]},
+ {"id": "p096", "intent": "a bad EAN on row one and a missing identifier on row two",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Other way", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "11",
+       "ZRET_S_ART_VAR-EAN(02)": "2222222222222"}, "ok": "SAVE"}
+  ]},
+ {"id": "p097", "intent": "Back pressed on the second screen, then a step that expects the first screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Y9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {}, "ok": "BACK"},
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Second try", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p098", "intent": "Enter on the first screen, then Back, then a step that expects the first screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z2"}, "ok": "ENTER"},
+    {"screen": "0200", "fields": {}, "ok": "BACK"},
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Third", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p099", "intent": "an article id with an internal space",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z 4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Spaced id", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p100", "intent": "the variant mark typed in lower case, which is not a tick",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z6"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Mark lower", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-MARK(01)": "x"}, "ok": "DEL"},
+    {"screen": "0200", "fields": {}, "ok": "SAVE"}
+  ]},
+ {"id": "p101", "intent": "a variant price of zero typed out",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Var zero", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-PRICE(01)": "0,00"}, "ok": "SAVE"}
+  ]},
+ {"id": "p102", "intent": "a variant price that is not a number",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z8"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Var text", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-PRICE(01)": "x"}, "ok": "SAVE"}
+  ]},
+ {"id": "p103", "intent": "the price typed, then cleared with an exclamation mark, then saved from the price tab",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "Z9"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Price bang", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "ENTER"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "!"}, "ok": "SAVE"}
+  ]},
+ {"id": "p104", "intent": "the article name cleared on the basic data tab after being typed",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "ZA1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Will go", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB1"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "!"}, "ok": "SAVE"}
+  ]},
+ {"id": "p105", "intent": "Back on the second screen leaves everything in place, and a later save still works",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Back stays", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "BACK"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p106", "intent": "Cancel on the second screen changes nothing either",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Canc stays", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "CANC"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p107", "intent": "Exit on the second screen changes nothing either",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Exit stays", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "EXIT"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p108", "intent": "an unknown function code on the second screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Odd code", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "ZZZZ"},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p109", "intent": "an unknown function code on the first screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V5"}, "ok": "ZZZZ"},
+    {"screen": "0100", "fields": {}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Odd code two", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p110", "intent": "a price of a lone full stop",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "V7"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Dot", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "."}, "ok": "SAVE"}
+  ]},
+ {"id": "p111", "intent": "no function code at all on either screen",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "ZB1"}},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "No code", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}},
+    {"screen": "0200", "fields": {}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p112", "intent": "an article saved with every field on all three tabs filled in",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "ZB2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Everything", "ZRET_S_ART-ARTICLE_TYPE": "SOFT", "ZRET_S_ART-BASE_UOM": "KG", "ZRET_S_ART-ACTIVE_FLAG": ""}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "1.999,95", "ZRET_S_ART-CURRENCY": "USD", "ZRET_S_ART-GENERIC_ARTICLE_ID": "GEN007"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {
+       "ZRET_S_ART_VAR-VARIANT_ID(01)": "R", "ZRET_S_ART_VAR-COLOR(01)": "red", "ZRET_S_ART_VAR-SIZE_CODE(01)": "S", "ZRET_S_ART_VAR-EAN(01)": "4001234567890", "ZRET_S_ART_VAR-PRICE(01)": "19,95",
+       "ZRET_S_ART_VAR-VARIANT_ID(02)": "G", "ZRET_S_ART_VAR-COLOR(02)": "green", "ZRET_S_ART_VAR-SIZE_CODE(02)": "M", "ZRET_S_ART_VAR-EAN(02)": "4001234567891", "ZRET_S_ART_VAR-PRICE(02)": "21,95"}, "ok": "SAVE"}
+  ]},
+ {"id": "p113", "intent": "price with a leading minus",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "YA1"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Lead minus", "ZRET_S_ART-ARTICLE_TYPE": "HARD"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "-5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p114", "intent": "an EAN of thirteen digits typed with a trailing space",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "YA2"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Ean trail", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-VARIANT_ID(01)": "V1", "ZRET_S_ART_VAR-EAN(01)": "1234567890123 "}, "ok": "SAVE"}
+  ]},
+ {"id": "p115", "intent": "a base unit longer than its field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "YA3"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Uom long", "ZRET_S_ART-ARTICLE_TYPE": "HARD", "ZRET_S_ART-BASE_UOM": "KGXX"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p116", "intent": "an article type longer than its field",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "YA4"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Type long", "ZRET_S_ART-ARTICLE_TYPE": "HARDX"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "SAVE"}
+  ]},
+ {"id": "p117", "intent": "a row with no identifier and a bad EAN: the missing identifier is reported",
+  "steps": [
+    {"screen": "0100", "fields": {"ZRET_S_ART-ARTICLE_ID": "YA5"}, "ok": "GO"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-ARTICLE_NAME": "Same row", "ZRET_S_ART-ARTICLE_TYPE": "SOFT"}, "ok": "TAB2"},
+    {"screen": "0200", "fields": {"ZRET_S_ART-PRICE": "5"}, "ok": "TAB3"},
+    {"screen": "0200", "fields": {"ZRET_S_ART_VAR-EAN(02)": "xx"}, "ok": "SAVE"}
+  ]}
+]

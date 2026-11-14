@@ -1,0 +1,14 @@
+{
+ "root": "/sap/opu/odata4/sap/zpp_mm_ui_article_o4/srvd/sap/zpp_mm_ui_article/0001/",
+ "objects": [
+  ["DDLS", "ZPP_MM_R_ARTICLE"],
+  ["DDLS", "ZPP_MM_R_VARIANT"],
+  ["DDLS", "ZPP_MM_P_SAVE"],
+  ["BDEF", "ZPP_MM_R_ARTICLE"],
+  ["CLAS", "ZPP_MM_BP_ARTICLE"],
+  ["DDLX", "ZPP_MM_X_ARTICLE"],
+  ["DDLX", "ZPP_MM_X_VARIANT"],
+  ["SRVD", "ZPP_MM_UI_ARTICLE"],
+  ["SRVB", "ZPP_MM_UI_ARTICLE_O4"]
+ ]
+}

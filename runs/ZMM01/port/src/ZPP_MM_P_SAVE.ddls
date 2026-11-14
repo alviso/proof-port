@@ -1,0 +1,54 @@
+@EndUserText.label: 'ZMM01 Save: one article screenful'
+define abstract entity ZPP_MM_P_SAVE
+{
+  ArticleId        : zde_ret_article_id;
+  ArticleName      : zde_ret_article_name;
+  ArticleType      : zde_ret_article_type;
+  BaseUom          : meins;
+  ActiveFlag       : abap.char( 1 );
+  Price            : zde_ret_price;
+  Currency         : waers;
+  GenericArticleId : abap.char( 10 );
+
+  // Which tab was open when Save was pressed.
+  SaveTab          : abap.char( 4 );
+
+  // The six lines of the old table control, as they stood on the screen. Empty
+  // lines are sent too, so the service decides which of them is a variant at all.
+  Row1VariantId    : abap.char( 4 );
+  Row1Color        : abap.char( 20 );
+  Row1SizeCode     : abap.char( 6 );
+  Row1Ean          : zde_ret_ean;
+  Row1Price        : zde_ret_price;
+
+  Row2VariantId    : abap.char( 4 );
+  Row2Color        : abap.char( 20 );
+  Row2SizeCode     : abap.char( 6 );
+  Row2Ean          : zde_ret_ean;
+  Row2Price        : zde_ret_price;
+
+  Row3VariantId    : abap.char( 4 );
+  Row3Color        : abap.char( 20 );
+  Row3SizeCode     : abap.char( 6 );
+  Row3Ean          : zde_ret_ean;
+  Row3Price        : zde_ret_price;
+
+  Row4VariantId    : abap.char( 4 );
+  Row4Color        : abap.char( 20 );
+  Row4SizeCode     : abap.char( 6 );
+  Row4Ean          : zde_ret_ean;
+  Row4Price        : zde_ret_price;
+
+  Row5VariantId    : abap.char( 4 );
+  Row5Color        : abap.char( 20 );
+  Row5SizeCode     : abap.char( 6 );
+  Row5Ean          : zde_ret_ean;
+  Row5Price        : zde_ret_price;
+
+  Row6VariantId    : abap.char( 4 );
+  Row6Color        : abap.char( 20 );
+  Row6SizeCode     : abap.char( 6 );
+  Row6Ean          : zde_ret_ean;
+  Row6Price        : zde_ret_price;
+}
+

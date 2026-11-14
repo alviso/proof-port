@@ -1,0 +1,35 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'ZMM01 article, root entity'
+@Metadata.allowExtensions: true
+define root view entity ZPP_MM_R_ARTICLE
+  as select from zret_t_article
+  composition [0..*] of ZPP_MM_R_VARIANT as _Variant
+{
+  key article_id                   as ArticleId,
+      article_name                 as ArticleName,
+      article_type                 as ArticleType,
+      // Left as a unit of measure on purpose: the old screen field carries the
+      // CUNIT conversion exit, so it too takes the unit in the log-on language's
+      // spelling (PC in English for the internal ST) and refuses an unknown one
+      // with the same message the service gives.
+      base_uom                     as BaseUom,
+      active_flag                  as ActiveFlag,
+      price                        as Price,
+      currency                     as Currency,
+      generic_article_id           as GenericArticleId,
+      ean                          as Ean,
+      color                        as Color,
+      art_size                     as ArtSize,
+      created_by                   as CreatedBy,
+      created_on                   as CreatedOn,
+      changed_by                   as ChangedBy,
+      changed_on                   as ChangedOn,
+      // Which tab of the old screen 0200 was open when Save was pressed.
+      // The old program runs the open subscreen's PAI before CHECK_ALL, so the
+      // tab decides which message comes first and which default is filled in.
+      // Not persisted: it is screen state, not article data.
+      cast( '' as abap.char( 4 ) ) as SaveTab,
+      _Variant
+}
+

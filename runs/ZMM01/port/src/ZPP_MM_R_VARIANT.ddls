@@ -1,0 +1,23 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'ZMM01 article variant'
+@Metadata.allowExtensions: true
+define view entity ZPP_MM_R_VARIANT
+  as select from zret_t_art_var
+  association to parent ZPP_MM_R_ARTICLE as _Article
+    on $projection.ArticleId = _Article.ArticleId
+{
+  key article_id            as ArticleId,
+  key variant_id            as VariantId,
+      color                 as Color,
+      size_code             as SizeCode,
+      ean                   as Ean,
+      price                 as Price,
+      currency              as Currency,
+      // Row this variant sat on in the old table control. The old program names
+      // the row in its error messages ("Variante ligne 3 : ..."), so the row has
+      // to travel with the line. Not persisted.
+      cast( 0 as abap.int4 ) as ScreenRow,
+      _Article
+}
+

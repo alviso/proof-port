@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Proof Port: ZMM01</title>
+<style>
+:root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#6b6a65; --line:#e3e0d8; --ok:#1f7a4d; --bad:#b3261e; --card:#ffffff; }
+@media (prefers-color-scheme: dark) { :root { --bg:#151513; --fg:#ecebe6; --muted:#a3a29b; --line:#33322e;
+  --ok:#5cc28d; --bad:#f2827b; --card:#1d1d1a; } }
+body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, system-ui, sans-serif; margin:0; }
+main { max-width:1100px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:28px; margin:0 0 4px; } h2 { font-size:19px; margin:36px 0 10px; }
+.muted { color:var(--muted); } .score { font-size:44px; font-weight:700; margin:18px 0 4px; }
+.ok { color:var(--ok); } .bad { color:var(--bad); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.card b { display:block; font-size:22px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+td, th { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line); }
+code { font-size:13px; word-break:break-all; }
+.wrap { overflow-x:auto; }
+</style></head><body><main>
+<h1>Proof Port: ZMM01</h1>
+<div class="muted">The old SAP transaction graded its rewrite, on cases sealed before the rewrite began.</div>
+<div class="score bad">139 of 141</div>
+<div>sealed cases behave the same on the old screen and in the new app (messages and every table row).</div>
+
+<div class="grid" style="margin-top:20px">
+ <div class="card"><span class="muted">Mutants caught</span><b>3 of 3</b>edits that break the port on purpose</div>
+ <div class="card"><span class="muted">Sealed</span><b>20:46 local</b>commit 511c77f; port started 21:38 local</div>
+ <div class="card"><span class="muted">Port agent saw the cases</span><b class="ok">no, after review</b>transcript searched for all 141 cases</div>
+ <div class="card"><span class="muted">Tables after grading</span><b class="ok">as before</b>every case started from the same data</div>
+</div>
+
+<h2>The seal</h2>
+<p>SHA-256 of the sealed bundle (cases and the old transaction's answers): <code>9e3220f78683f4e61a1c77611ac2e57df019fdcc84e9dec69b6ab55c5c9a49f5</code>.
+It was committed in <code>runs/ZMM01/SEAL.md</code> before the port agent started; the bundle itself is published
+next to it now. Check: <code>shasum -a 256 runs/ZMM01/sealed/bundle.json</code>.
+The old transaction answered every case as it did when sealed.</p>
+
+<h2>What the leak check flagged</h2><ul><li>the sealed intent &#x27;price with a thousands separator and no decimals&#x27; (c061) also appears as the port agent&#x27;s p052 &#x27;a price with a thousands separator and no decimals&#x27;. Judged: same idea, not a copy: different article id (L4 vs ART01), price (1.234 vs 1.000) and function code (GO vs /00), the agent&#x27;s own intent style, and no tool call touched the sealed cases or the vault; both agents took 1.000-style input from the same brief.</li></ul>
+
+<h2>Every difference</h2>
+<div class="wrap"><table><tr><th>Case</th><th>What it checks</th><th>Difference</th></tr><tr><td>c018</td><td>Exit pressed on the selection screen with no article id</td><td>The old screen said &#x27;Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message&#x27;, &#x27;Make an entry in mandatory field &quot;Article&quot;&#x27;; the new app said nothing.</td></tr><tr><td>c043</td><td>base unit that is not a unit of measure</td><td>The old screen said &#x27;Unit QQ is not created in language EN.&#x27;; the new app said nothing.</td></tr></table></div>
+
+<h2>Mutants</h2>
+<div class="wrap"><table><tr><th>Change to the port</th><th>Result</th></tr><tr><td>line 149: &#x27;&lt;=&#x27; became &#x27;&gt;&#x27;</td><td>caught by 44 cases</td></tr><tr><td>line 80: the check &#x27;IF lt_variant_upd IS NOT INITIAL&#x27; switched off</td><td>caught by 33 cases</td></tr><tr><td>line 150: message text &#x27;Le prix doit être supérieur à zéro&#x27; became &#x27;Le prix doit être supérieur à zérx&#x27;</td><td>caught by 6 cases</td></tr></table></div>
+
+<h2>What was checked and what wasn't</h2>
+<p>Checked, for every case: the error messages (by text) and every row of ZRET_T_ARTICLE, ZRET_T_ART_VAR after the old screen and after the new app, each from the same starting data.
+No calls into the old transaction were found in the port or its driver.</p>
+<p>Not checked:</p><ul><li>Batch input proves rules, not display. What a screen shows (names, greyed fields, titles) is only seen through what it accepts and what it saves.</li><li>A success message sent just before the transaction ends never reaches batch input, so for saves the rows are the evidence, not that message.</li><li>Batch input stops at the first error, so retyping after a refusal on the same screen is not tested.</li><li>F4 value help does not run under batch input.</li><li>Timestamps written by either side are compared as present or empty, not by value.</li><li>Messages are compared by their text when they are errors. Warnings and information messages are not compared.</li></ul>
+
+<h2>How it ran</h2>
+<div class="grid">
+ <div class="card"><span class="muted">Test author agent</span><b>8.54 USD, 18 min</b>141 cases from the extract alone</div>
+ <div class="card"><span class="muted">Port agent</span><b>44.55 USD, 69 min</b>RAP object, OData V4 service, driver</div>
+ <div class="card"><span class="muted">Grading</span><b>4.9 s + 73.6 s</b>old screen, then new app</div>
+</div>
+<p class="muted">Files: <code>runs/ZMM01/extract/</code> (what the factory read), <code>sealed/</code> (cases and answers),
+<code>port/</code> (the new objects' sources, driver, the agent's report), <code>transcripts/</code> (both agents, cleaned of the machine's tool list),
+<code>grade.json</code>, <code>mutants.json</code>.</p>
+</main></body></html>

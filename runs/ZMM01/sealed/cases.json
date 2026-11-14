@@ -1,0 +1,4369 @@
+[
+ {
+  "id": "c001",
+  "intent": "empty article id with Enter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": ""
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c002",
+  "intent": "article id of spaces only",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "   "
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c003",
+  "intent": "exclamation mark typed into the article id",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "!"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c004",
+  "intent": "known-good article id, stopping on the main screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c005",
+  "intent": "article id typed in lowercase, then created",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "art01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Lower case id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c006",
+  "intent": "article id with leading and trailing spaces, then created",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "  ART01  "
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Padded id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c007",
+  "intent": "article id using all twenty characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ABCDEFGHIJKLMNOPQRST"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Long id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c008",
+  "intent": "article id one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ABCDEFGHIJKLMNOPQRSTU"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c009",
+  "intent": "article id containing punctuation",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "A/B-1.2"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Punctuated id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c010",
+  "intent": "article id of digits only",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "0000000001"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Numeric id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c011",
+  "intent": "the Continue button instead of Enter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "GO"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Via button",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c012",
+  "intent": "ENTER as an explicit function code on 0100",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "ENTER"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Via enter",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c013",
+  "intent": "Save pressed on the selection screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "SAVE"
+   },
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c014",
+  "intent": "Back pressed on the selection screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "BACK"
+   }
+  ]
+ },
+ {
+  "id": "c015",
+  "intent": "Exit pressed on the selection screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "EXIT"
+   }
+  ]
+ },
+ {
+  "id": "c016",
+  "intent": "Cancel pressed on the selection screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "CANC"
+   }
+  ]
+ },
+ {
+  "id": "c017",
+  "intent": "a function code the status does not define, pressed on 0100",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "ZZZZ"
+   },
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c018",
+  "intent": "Exit pressed on the selection screen with no article id",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": ""
+    },
+    "ok": "EXIT"
+   }
+  ]
+ },
+ {
+  "id": "c019",
+  "intent": "save with no article name",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c020",
+  "intent": "article name cleared with an exclamation mark, then saved",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hammer",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c021",
+  "intent": "article name typed then blanked on the next press",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hammer",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": ""
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c022",
+  "intent": "article name of spaces only",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "   ",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c023",
+  "intent": "article name using all sixty characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c024",
+  "intent": "article name one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c025",
+  "intent": "article name with leading spaces",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "   Hammer",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c026",
+  "intent": "article name with trailing spaces",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hammer   ",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c027",
+  "intent": "article name typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "hammer, small",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c028",
+  "intent": "article name with accented letters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Marteau à panne fendue",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c029",
+  "intent": "article name of digits and punctuation",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "12,5 mm / 3-pack (x2)",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c030",
+  "intent": "save with no article type",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hammer"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c031",
+  "intent": "article type HARD",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hardgood",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c032",
+  "intent": "article type SOFT",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Softgood",
+     "ZRET_S_ART-ARTICLE_TYPE": "SOFT"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c033",
+  "intent": "article type ACCE, a domain value the listbox does not offer",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Accessory",
+     "ZRET_S_ART-ARTICLE_TYPE": "ACCE"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c034",
+  "intent": "article type CONS, a domain value the listbox does not offer",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Consumable",
+     "ZRET_S_ART-ARTICLE_TYPE": "CONS"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c035",
+  "intent": "article type FOOD, offered by the listbox but not a domain value",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Food",
+     "ZRET_S_ART-ARTICLE_TYPE": "FOOD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c036",
+  "intent": "article type typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hardgood",
+     "ZRET_S_ART-ARTICLE_TYPE": "hard"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c037",
+  "intent": "article type that is no domain value at all",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "X",
+     "ZRET_S_ART-ARTICLE_TYPE": "ZZZZ"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c038",
+  "intent": "article type given as a single letter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "X",
+     "ZRET_S_ART-ARTICLE_TYPE": "H"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c039",
+  "intent": "article type one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "X",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARDX"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c040",
+  "intent": "article type cleared with an exclamation mark, then saved",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Hammer",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_TYPE": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c041",
+  "intent": "base unit left at the default proposed for a new article",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Default unit",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c042",
+  "intent": "base unit typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Kilo",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-BASE_UOM": "kg"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c043",
+  "intent": "base unit that is not a unit of measure",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Bad unit",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-BASE_UOM": "QQ"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c044",
+  "intent": "base unit cleared and the article saved from tab 1, where the ST default lives",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No unit",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-BASE_UOM": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c045",
+  "intent": "base unit cleared on tab 1 but the article saved from tab 2",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No unit",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-BASE_UOM": "!"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c046",
+  "intent": "base unit one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Long unit",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-BASE_UOM": "KGXX"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c047",
+  "intent": "active flag unticked with a blank",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Inactive",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-ACTIVE_FLAG": " "
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c048",
+  "intent": "active flag cleared with an exclamation mark",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Inactive",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-ACTIVE_FLAG": "!"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c049",
+  "intent": "active flag set to Y, not a domain value",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Bad flag",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-ACTIVE_FLAG": "Y"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c050",
+  "intent": "active flag ticked with a lowercase x",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Lower x",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-ACTIVE_FLAG": "x"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c051",
+  "intent": "active flag ticked explicitly",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Active",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD",
+     "ZRET_S_ART-ACTIVE_FLAG": "X"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c052",
+  "intent": "save from tab 2 without ever entering a price",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No price",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c053",
+  "intent": "price typed as a single zero",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Zero",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "0"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c054",
+  "intent": "price typed as zero with decimals",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Zero",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "0,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c055",
+  "intent": "price typed as a lone decimal comma",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Comma",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": ","
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c056",
+  "intent": "price of one cent, just over the zero boundary",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "One cent",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "0,01"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c057",
+  "intent": "price with a leading minus",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Negative",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "-5"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c058",
+  "intent": "price with SAP's trailing minus",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Negative",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "5-"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c059",
+  "intent": "price of minus one cent, just under the zero boundary",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Negative",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "-0,01"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c060",
+  "intent": "price with a thousands separator and decimals",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Thousand",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1.000,50"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c061",
+  "intent": "price with a thousands separator and no decimals",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Thousand",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1.000"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c062",
+  "intent": "price typed as 10. with a trailing dot",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Dot",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "10."
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c063",
+  "intent": "price typed as 1.00, an English decimal point",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Dot",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1.00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c064",
+  "intent": "price typed as 1,000, three digits after the comma",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Comma",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,000"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c065",
+  "intent": "price with three decimals",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Comma",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "0,001"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c066",
+  "intent": "price at the largest value the field holds",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Maximum",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "99.999.999.999,99"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c067",
+  "intent": "price one digit wider than the field",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Too big",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "999.999.999.999,99"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c068",
+  "intent": "letters typed into the price",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Letters",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "ABC"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c069",
+  "intent": "a digit and a letter typed into the price",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Letters",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1A"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c070",
+  "intent": "price entered then cleared with an exclamation mark",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Cleared",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "7,00"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c071",
+  "intent": "currency USD instead of the proposed EUR",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Dollars",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "USD"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c072",
+  "intent": "currency typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Dollars",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "usd"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c073",
+  "intent": "currency that is not a currency key",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Bad currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "QQQ"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c074",
+  "intent": "currency using all five characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "EUROS"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c075",
+  "intent": "currency one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "EUROSX"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c076",
+  "intent": "currency cleared and the article saved from tab 2, where the EUR default lives",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c077",
+  "intent": "currency cleared on tab 2 but the article saved from tab 1",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "!"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c078",
+  "intent": "generic article id using all ten characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Generic",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "GEN1234567"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c079",
+  "intent": "generic article id one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Generic",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "GEN12345678"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c080",
+  "intent": "generic article id typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Generic",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "gen1"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c081",
+  "intent": "generic article id entered then cleared with an exclamation mark",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Generic",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "GEN1"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c082",
+  "intent": "one variant with every column filled",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "With variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red",
+     "ZRET_S_ART_VAR-SIZE_CODE(01)": "M",
+     "ZRET_S_ART_VAR-EAN(01)": "4006381333931",
+     "ZRET_S_ART_VAR-PRICE(01)": "2,50"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c083",
+  "intent": "five variants, one per row",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Five variants",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3",
+     "ZRET_S_ART_VAR-VARIANT_ID(04)": "V4",
+     "ZRET_S_ART_VAR-VARIANT_ID(05)": "V5"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c084",
+  "intent": "a variant in the fifth row only",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Row five",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(05)": "V5",
+     "ZRET_S_ART_VAR-COLOR(05)": "Blue"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c085",
+  "intent": "a short EAN in the third row names that row in the message",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Row three",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3",
+     "ZRET_S_ART_VAR-EAN(03)": "12345"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c086",
+  "intent": "a variant row holding only a colour",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Colour only",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c087",
+  "intent": "a variant row holding only a size",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Size only",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-SIZE_CODE(01)": "XL"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c088",
+  "intent": "a variant row with an EAN but no variant id",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "No variant id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-EAN(01)": "4006381333931"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c089",
+  "intent": "variant EAN of twelve digits, one short",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Short ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "400638133393"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c090",
+  "intent": "variant EAN of fourteen digits, one long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Long ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "40063813339311"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c091",
+  "intent": "variant EAN of eighteen digits, the whole field",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Long ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "400638133393112233"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c092",
+  "intent": "variant EAN of thirteen characters with a letter among them",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Letter ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "400638133393X"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c093",
+  "intent": "variant EAN of thirteen characters with a space among them",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Space ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "400 381333931"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c094",
+  "intent": "variant EAN of thirteen zeros",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Zero ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "0000000000000"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c095",
+  "intent": "variant EAN of thirteen digits, exactly right",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Good ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "4006381333931"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c096",
+  "intent": "only the second variant row carries an EAN, which the header takes",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Header ean",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-EAN(02)": "4006381333931",
+     "ZRET_S_ART_VAR-VARIANT_ID(03)": "V3"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c097",
+  "intent": "two variant rows carry different EANs",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Two eans",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-EAN(01)": "4006381333931",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-EAN(02)": "1234567890128"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c098",
+  "intent": "the header currency set after the variant was typed",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Late currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-PRICE(01)": "2,50"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "CHF"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c099",
+  "intent": "a variant with a price but no currency of its own",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Inherit currency",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "USD"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-PRICE(01)": "2,50"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c100",
+  "intent": "a negative variant price",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Negative variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-PRICE(01)": "-1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c101",
+  "intent": "a variant price of zero, which no rule forbids",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Zero variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-PRICE(01)": "0,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c102",
+  "intent": "a variant price with a thousands separator",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Big variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-PRICE(01)": "1.234,56"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c103",
+  "intent": "a variant id using all four characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide variant id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "ABCD"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c104",
+  "intent": "a variant id one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide variant id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "ABCDE"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c105",
+  "intent": "a variant id typed in lowercase",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Lower variant id",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "v1",
+     "ZRET_S_ART_VAR-COLOR(01)": "rouge"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c106",
+  "intent": "a variant colour using all twenty characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide colour",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "ABCDEFGHIJKLMNOPQRST"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c107",
+  "intent": "a variant colour one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide colour",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "ABCDEFGHIJKLMNOPQRSTU"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c108",
+  "intent": "a variant size using all six characters",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide size",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-SIZE_CODE(01)": "XXXXXL"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c109",
+  "intent": "a variant size one character too long",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Wide size",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-SIZE_CODE(01)": "XXXXXXL"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c110",
+  "intent": "Add line, then a variant in the sixth row",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Added row",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "ADD"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(06)": "V6"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c111",
+  "intent": "Add line twice, scroll down, then a variant in the seventh line",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Scrolled row",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "ADD"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "ADD"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "P+"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V7"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c112",
+  "intent": "scroll the variant table down without adding a line",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Scrolled",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "P+"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c113",
+  "intent": "Delete line with the first row marked",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Deleted row",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-MARK(01)": "X"
+    },
+    "ok": "DEL"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c114",
+  "intent": "Delete line with nothing marked",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Nothing marked",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "DEL"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c115",
+  "intent": "Delete line with every row marked",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "All marked",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-MARK(01)": "X",
+     "ZRET_S_ART_VAR-MARK(02)": "X",
+     "ZRET_S_ART_VAR-MARK(03)": "X",
+     "ZRET_S_ART_VAR-MARK(04)": "X",
+     "ZRET_S_ART_VAR-MARK(05)": "X"
+    },
+    "ok": "DEL"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c116",
+  "intent": "Delete line with the mark typed as a lowercase x",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Lower mark",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-MARK(01)": "x"
+    },
+    "ok": "DEL"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c117",
+  "intent": "a variant row left marked but never deleted",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Marked row",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-MARK(01)": "X"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c118",
+  "intent": "a variant typed, Enter, then a second variant typed",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Two presses",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-COLOR(02)": "Blue"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c119",
+  "intent": "a variant id cleared with an exclamation mark before saving",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Cleared variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c120",
+  "intent": "a variant id overwritten with another before saving",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Overwritten variant",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V9"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c121",
+  "intent": "a variant colour cleared but the id kept",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Cleared colour",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-COLOR(01)": "!"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c122",
+  "intent": "Add line then delete the row it added",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Add then delete",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "ADD"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(06)": "V6",
+     "ZRET_S_ART_VAR-MARK(06)": "X"
+    },
+    "ok": "DEL"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c123",
+  "intent": "price entered on tab 2, then saved from tab 1",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Across tabs",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "3,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c124",
+  "intent": "a variant entered on tab 3, then saved from tab 1",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Across tabs",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "3,00"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c125",
+  "intent": "the whole tour: basic data, sales, variants, back to basic data, save",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Grand tour",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "4,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ACTIVE_FLAG": "X"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c126",
+  "intent": "tab 2 pressed twice in a row",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Twice",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c127",
+  "intent": "tab 1 pressed while tab 1 is already showing",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Already there",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c128",
+  "intent": "saved from tab 3",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "From tab three",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c129",
+  "intent": "Back pressed on the main screen as the first press, then Enter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "BACK"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c130",
+  "intent": "Exit pressed on the main screen as the first press, then Enter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "EXIT"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c131",
+  "intent": "Cancel pressed on the main screen as the first press, then Enter",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "CANC"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c132",
+  "intent": "Back pressed on the main screen after typing, then the article saved anyway",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Survives back",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "BACK"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c133",
+  "intent": "Back pressed on the main screen, then another article id typed on it",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "BACK"
+   },
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART02"
+    },
+    "ok": "/00"
+   }
+  ]
+ },
+ {
+  "id": "c134",
+  "intent": "Enter pressed twice on the main screen with nothing typed, then saved",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Two enters",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c135",
+  "intent": "a function code the status does not define, pressed on the main screen",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Unknown code",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "ZZZZ"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c136",
+  "intent": "Save pressed twice: the second press after the article is written",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Saved twice",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c137",
+  "intent": "after the article is written, another article id typed on 0100",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Then another",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "SAVE"
+   },
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART02"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Second one",
+     "ZRET_S_ART-ARTICLE_TYPE": "SOFT"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "2,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c138",
+  "intent": "the price corrected after the save was refused for being zero",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Corrected",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "5,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c139",
+  "intent": "a variant typed on tab 3, a detour through tab 2, then saved from tab 3",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Detour",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Red"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {},
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c140",
+  "intent": "one field changed and the others left alone after visiting every tab",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART01"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "First name",
+     "ZRET_S_ART-ARTICLE_TYPE": "HARD"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "1,00",
+     "ZRET_S_ART-CURRENCY": "USD"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1"
+    },
+    "ok": "TAB1"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Second name"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ },
+ {
+  "id": "c141",
+  "intent": "every field on all three tabs filled in one pass",
+  "steps": [
+   {
+    "screen": "0100",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_ID": "ART99"
+    },
+    "ok": "/00"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-ARTICLE_NAME": "Complete article",
+     "ZRET_S_ART-ARTICLE_TYPE": "SOFT",
+     "ZRET_S_ART-BASE_UOM": "KG",
+     "ZRET_S_ART-ACTIVE_FLAG": "X"
+    },
+    "ok": "TAB2"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART-PRICE": "12.345,67",
+     "ZRET_S_ART-CURRENCY": "CHF",
+     "ZRET_S_ART-GENERIC_ARTICLE_ID": "GENERIC01"
+    },
+    "ok": "TAB3"
+   },
+   {
+    "screen": "0200",
+    "fields": {
+     "ZRET_S_ART_VAR-VARIANT_ID(01)": "V1",
+     "ZRET_S_ART_VAR-COLOR(01)": "Black",
+     "ZRET_S_ART_VAR-SIZE_CODE(01)": "S",
+     "ZRET_S_ART_VAR-EAN(01)": "4006381333931",
+     "ZRET_S_ART_VAR-PRICE(01)": "10,00",
+     "ZRET_S_ART_VAR-VARIANT_ID(02)": "V2",
+     "ZRET_S_ART_VAR-COLOR(02)": "White",
+     "ZRET_S_ART_VAR-SIZE_CODE(02)": "L",
+     "ZRET_S_ART_VAR-EAN(02)": "1234567890128",
+     "ZRET_S_ART_VAR-PRICE(02)": "11,00"
+    },
+    "ok": "SAVE"
+   }
+  ]
+ }
+]

@@ -1,0 +1,10 @@
+CLASS zpp_mm_bp_article DEFINITION
+  PUBLIC
+  ABSTRACT
+  FINAL
+  FOR BEHAVIOR OF zpp_mm_r_article.
+ENDCLASS.
+
+CLASS zpp_mm_bp_article IMPLEMENTATION.
+ENDCLASS.
+

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZMM01 article maintenance, UI service'
+define service ZPP_MM_UI_ARTICLE {
+  expose ZPP_MM_R_ARTICLE as RetailArticle;
+  expose ZPP_MM_R_VARIANT as RetailArticleVariant;
+}
+

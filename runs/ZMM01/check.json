@@ -1,0 +1,17 @@
+{
+ "sealed_cases": 141,
+ "leaks": [
+  "tool call Write: repeats the intent of a sealed case: price with a thousands separator and no decimals",
+  "runs/ZMM01/port/my_cases.json: repeats the intent of a sealed case: price with a thousands separator and no decimals",
+  "runs/ZMM01/port/grade_my_cases.json: repeats the intent of a sealed case: price with a thousands separator and no decimals"
+ ],
+ "notes": [],
+ "forbidden_calls": [],
+ "reviewed": [
+  {
+   "finding": "the sealed intent 'price with a thousands separator and no decimals' (c061) also appears as the port agent's p052 'a price with a thousands separator and no decimals'",
+   "judgment": "same idea, not a copy: different article id (L4 vs ART01), price (1.234 vs 1.000) and function code (GO vs /00), the agent's own intent style, and no tool call touched the sealed cases or the vault; both agents took 1.000-style input from the same brief",
+   "by": "Peter's factory session, by hand, before grading"
+  }
+ ]
+}

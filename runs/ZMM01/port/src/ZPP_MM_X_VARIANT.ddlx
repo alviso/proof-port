@@ -1,0 +1,42 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Variant',
+    typeNamePlural: 'Variants',
+    title: { value: 'VariantId' }
+  }
+}
+annotate view ZPP_MM_R_VARIANT with
+{
+  @UI.hidden: true
+  ArticleId;
+
+  @UI.lineItem:       [ { position: 10, importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  VariantId;
+
+  @UI.lineItem:       [ { position: 20, importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  Color;
+
+  @UI.lineItem:       [ { position: 30, importance: #HIGH } ]
+  @UI.identification: [ { position: 30 } ]
+  SizeCode;
+
+  @UI.lineItem:       [ { position: 40, importance: #HIGH } ]
+  @UI.identification: [ { position: 40 } ]
+  Ean;
+
+  @UI.lineItem:       [ { position: 50, importance: #HIGH } ]
+  @UI.identification: [ { position: 50 } ]
+  Price;
+
+  @UI.lineItem:       [ { position: 60, importance: #MEDIUM } ]
+  @UI.identification: [ { position: 60 } ]
+  Currency;
+
+  // Row this line sat on in the old table control, not variant data.
+  @UI.hidden: true
+  ScreenRow;
+}
+

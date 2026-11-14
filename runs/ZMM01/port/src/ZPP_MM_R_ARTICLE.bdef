@@ -1,0 +1,85 @@
+managed implementation in class zpp_mm_bp_article unique;
+strict ( 2 );
+
+define behavior for ZPP_MM_R_ARTICLE alias Article
+persistent table zret_t_article
+lock master
+authorization master ( global )
+{
+  create;
+  update;
+  delete;
+
+  // The old screen 0200 never lets a user type these: the header EAN is copied
+  // from the first variant that has one, COLOR and ART_SIZE are not on any
+  // screen, and the four administrative fields are stamped by the program.
+  field ( readonly ) Ean, Color, ArtSize, CreatedBy, CreatedOn, ChangedBy, ChangedOn;
+  field ( mandatory : create ) ArticleId;
+  field ( readonly : update ) ArticleId;
+
+  // Everything the old program does between pressing Save and the database:
+  // the open tab's default value, the variant currency, the header EAN and the
+  // administrative stamps. One determination, because the old code does them in
+  // one order and the later steps read what the earlier ones wrote.
+  //
+  // On modify, not on save: a determination on save may not write its own
+  // buffer. The trigger lists no field this determination itself fills in, so it
+  // cannot set itself off again.
+  determination prepareSave on modify
+    { create; field ArticleName, ArticleType, Price, GenericArticleId, ActiveFlag, SaveTab; }
+
+  // FORM check_all plus the check of the open subscreen, in the old order.
+  validation checkArticle on save { create; update; }
+
+  // Pressing Save on the old screen 0200: the article and all six lines of the
+  // variant table arrive together, so the whole screenful is checked and written
+  // in one go, as PERFORM check_all and PERFORM save_article did. The action only
+  // carries the data in; every rule is in the determination and the validation
+  // above, which a person editing the object page gets just the same.
+  static action pressSave parameter ZPP_MM_P_SAVE;
+
+  association _Variant { create; }
+
+  mapping for zret_t_article
+  {
+    ArticleId        = article_id;
+    ArticleName      = article_name;
+    ArticleType      = article_type;
+    BaseUom          = base_uom;
+    ActiveFlag       = active_flag;
+    Price            = price;
+    Currency         = currency;
+    GenericArticleId = generic_article_id;
+    Ean              = ean;
+    Color            = color;
+    ArtSize          = art_size;
+    CreatedBy        = created_by;
+    CreatedOn        = created_on;
+    ChangedBy        = changed_by;
+    ChangedOn        = changed_on;
+  }
+}
+
+define behavior for ZPP_MM_R_VARIANT alias Variant
+persistent table zret_t_art_var
+lock dependent by _Article
+authorization dependent by _Article
+{
+  update;
+  delete;
+
+  field ( readonly ) ArticleId;
+
+  association _Article;
+
+  mapping for zret_t_art_var
+  {
+    ArticleId = article_id;
+    VariantId = variant_id;
+    Color     = color;
+    SizeCode  = size_code;
+    Ean       = ean;
+    Price     = price;
+    Currency  = currency;
+  }
+}

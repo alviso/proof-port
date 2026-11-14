@@ -1,0 +1,1688 @@
+{
+ "tcode": "ZMM01",
+ "cases": 141,
+ "passed": 139,
+ "failed": 2,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 4.9,
+ "seconds_new": 73.6,
+ "results": [
+  {
+   "id": "c001",
+   "intent": "empty article id with Enter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+    "Make an entry in mandatory field \"Article\""
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Make an entry in mandatory field \"Article\"",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c002",
+   "intent": "article id of spaces only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+    "Make an entry in mandatory field \"Article\""
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Make an entry in mandatory field \"Article\"",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c003",
+   "intent": "exclamation mark typed into the article id",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+    "Make an entry in mandatory field \"Article\""
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Make an entry in mandatory field \"Article\"",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c004",
+   "intent": "known-good article id, stopping on the main screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c005",
+   "intent": "article id typed in lowercase, then created",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c006",
+   "intent": "article id with leading and trailing spaces, then created",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c007",
+   "intent": "article id using all twenty characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c008",
+   "intent": "article id one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c009",
+   "intent": "article id containing punctuation",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c010",
+   "intent": "article id of digits only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c011",
+   "intent": "the Continue button instead of Enter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c012",
+   "intent": "ENTER as an explicit function code on 0100",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c013",
+   "intent": "Save pressed on the selection screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c014",
+   "intent": "Back pressed on the selection screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c015",
+   "intent": "Exit pressed on the selection screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c016",
+   "intent": "Cancel pressed on the selection screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c017",
+   "intent": "a function code the status does not define, pressed on 0100",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c018",
+   "intent": "Exit pressed on the selection screen with no article id",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "messages",
+     "old": [
+      "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+      "Make an entry in mandatory field \"Article\""
+     ],
+     "new": []
+    }
+   ],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-ARTICLE_ID; see next message",
+    "Make an entry in mandatory field \"Article\""
+   ],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c019",
+   "intent": "save with no article name",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Renseignez le nom de l'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Renseignez le nom de l'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c020",
+   "intent": "article name cleared with an exclamation mark, then saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Renseignez le nom de l'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Renseignez le nom de l'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c021",
+   "intent": "article name typed then blanked on the next press",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Renseignez le nom de l'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Renseignez le nom de l'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c022",
+   "intent": "article name of spaces only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Renseignez le nom de l'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Renseignez le nom de l'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c023",
+   "intent": "article name using all sixty characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c024",
+   "intent": "article name one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c025",
+   "intent": "article name with leading spaces",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c026",
+   "intent": "article name with trailing spaces",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c027",
+   "intent": "article name typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c028",
+   "intent": "article name with accented letters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c029",
+   "intent": "article name of digits and punctuation",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c030",
+   "intent": "save with no article type",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Choisissez un type d'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Choisissez un type d'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c031",
+   "intent": "article type HARD",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c032",
+   "intent": "article type SOFT",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c033",
+   "intent": "article type ACCE, a domain value the listbox does not offer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c034",
+   "intent": "article type CONS, a domain value the listbox does not offer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c035",
+   "intent": "article type FOOD, offered by the listbox but not a domain value",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a valid value",
+    "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a valid value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c036",
+   "intent": "article type typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c037",
+   "intent": "article type that is no domain value at all",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a valid value",
+    "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a valid value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c038",
+   "intent": "article type given as a single letter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a valid value",
+    "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ARTICLE_TYPE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a valid value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c039",
+   "intent": "article type one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c040",
+   "intent": "article type cleared with an exclamation mark, then saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Choisissez un type d'article"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Choisissez un type d'article"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c041",
+   "intent": "base unit left at the default proposed for a new article",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c042",
+   "intent": "base unit typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c043",
+   "intent": "base unit that is not a unit of measure",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "messages",
+     "old": [
+      "Unit QQ is not created in language EN."
+     ],
+     "new": []
+    }
+   ],
+   "old_messages": [
+    "Unit QQ is not created in language EN."
+   ],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c044",
+   "intent": "base unit cleared and the article saved from tab 1, where the ST default lives",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c045",
+   "intent": "base unit cleared on tab 1 but the article saved from tab 2",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c046",
+   "intent": "base unit one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c047",
+   "intent": "active flag unticked with a blank",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c048",
+   "intent": "active flag cleared with an exclamation mark",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c049",
+   "intent": "active flag set to Y, not a domain value",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a valid value",
+    "Formatting error in the field ZRET_S_ART-ACTIVE_FLAG; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ACTIVE_FLAG; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a valid value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c050",
+   "intent": "active flag ticked with a lowercase x",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a valid value",
+    "Formatting error in the field ZRET_S_ART-ACTIVE_FLAG; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-ACTIVE_FLAG; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a valid value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c051",
+   "intent": "active flag ticked explicitly",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c052",
+   "intent": "save from tab 2 without ever entering a price",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c053",
+   "intent": "price typed as a single zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c054",
+   "intent": "price typed as zero with decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c055",
+   "intent": "price typed as a lone decimal comma",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c056",
+   "intent": "price of one cent, just over the zero boundary",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c057",
+   "intent": "price with a leading minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c058",
+   "intent": "price with SAP's trailing minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c059",
+   "intent": "price of minus one cent, just under the zero boundary",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c060",
+   "intent": "price with a thousands separator and decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c061",
+   "intent": "price with a thousands separator and no decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c062",
+   "intent": "price typed as 10. with a trailing dot",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Input must be in the format __.___.___.___,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format __.___.___.___,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c063",
+   "intent": "price typed as 1.00, an English decimal point",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Input must be in the format __.___.___.___,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format __.___.___.___,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c064",
+   "intent": "price typed as 1,000, three digits after the comma",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Input must be in the format __.___.___.___,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format __.___.___.___,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c065",
+   "intent": "price with three decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+    "Input must be in the format __.___.___.___,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format __.___.___.___,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c066",
+   "intent": "price at the largest value the field holds",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c067",
+   "intent": "price one digit wider than the field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c068",
+   "intent": "letters typed into the price",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a numeric value",
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a numeric value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c069",
+   "intent": "a digit and a letter typed into the price",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a numeric value",
+    "Formatting error in the field ZRET_S_ART-PRICE; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a numeric value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c070",
+   "intent": "price entered then cleared with an exclamation mark",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c071",
+   "intent": "currency USD instead of the proposed EUR",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c072",
+   "intent": "currency typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c073",
+   "intent": "currency that is not a currency key",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c074",
+   "intent": "currency using all five characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c075",
+   "intent": "currency one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c076",
+   "intent": "currency cleared and the article saved from tab 2, where the EUR default lives",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c077",
+   "intent": "currency cleared on tab 2 but the article saved from tab 1",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c078",
+   "intent": "generic article id using all ten characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c079",
+   "intent": "generic article id one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c080",
+   "intent": "generic article id typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c081",
+   "intent": "generic article id entered then cleared with an exclamation mark",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c082",
+   "intent": "one variant with every column filled",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c083",
+   "intent": "five variants, one per row",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c084",
+   "intent": "a variant in the fifth row only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c085",
+   "intent": "a short EAN in the third row names that row in the message",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 3 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 3 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c086",
+   "intent": "a variant row holding only a colour",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c087",
+   "intent": "a variant row holding only a size",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c088",
+   "intent": "a variant row with an EAN but no variant id",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : identifiant manquant"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : identifiant manquant"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c089",
+   "intent": "variant EAN of twelve digits, one short",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c090",
+   "intent": "variant EAN of fourteen digits, one long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c091",
+   "intent": "variant EAN of eighteen digits, the whole field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c092",
+   "intent": "variant EAN of thirteen characters with a letter among them",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c093",
+   "intent": "variant EAN of thirteen characters with a space among them",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Variante ligne 1 : l'EAN doit avoir 13 chiffres"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c094",
+   "intent": "variant EAN of thirteen zeros",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c095",
+   "intent": "variant EAN of thirteen digits, exactly right",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c096",
+   "intent": "only the second variant row carries an EAN, which the header takes",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c097",
+   "intent": "two variant rows carry different EANs",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c098",
+   "intent": "the header currency set after the variant was typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c099",
+   "intent": "a variant with a price but no currency of its own",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c100",
+   "intent": "a negative variant price",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field ZRET_S_ART_VAR-PRICE; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field ZRET_S_ART_VAR-PRICE; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c101",
+   "intent": "a variant price of zero, which no rule forbids",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c102",
+   "intent": "a variant price with a thousands separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c103",
+   "intent": "a variant id using all four characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c104",
+   "intent": "a variant id one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c105",
+   "intent": "a variant id typed in lowercase",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c106",
+   "intent": "a variant colour using all twenty characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c107",
+   "intent": "a variant colour one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c108",
+   "intent": "a variant size using all six characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c109",
+   "intent": "a variant size one character too long",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c110",
+   "intent": "Add line, then a variant in the sixth row",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c111",
+   "intent": "Add line twice, scroll down, then a variant in the seventh line",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c112",
+   "intent": "scroll the variant table down without adding a line",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c113",
+   "intent": "Delete line with the first row marked",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c114",
+   "intent": "Delete line with nothing marked",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c115",
+   "intent": "Delete line with every row marked",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c116",
+   "intent": "Delete line with the mark typed as a lowercase x",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c117",
+   "intent": "a variant row left marked but never deleted",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c118",
+   "intent": "a variant typed, Enter, then a second variant typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c119",
+   "intent": "a variant id cleared with an exclamation mark before saving",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c120",
+   "intent": "a variant id overwritten with another before saving",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c121",
+   "intent": "a variant colour cleared but the id kept",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c122",
+   "intent": "Add line then delete the row it added",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c123",
+   "intent": "price entered on tab 2, then saved from tab 1",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c124",
+   "intent": "a variant entered on tab 3, then saved from tab 1",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c125",
+   "intent": "the whole tour: basic data, sales, variants, back to basic data, save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c126",
+   "intent": "tab 2 pressed twice in a row",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c127",
+   "intent": "tab 1 pressed while tab 1 is already showing",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c128",
+   "intent": "saved from tab 3",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c129",
+   "intent": "Back pressed on the main screen as the first press, then Enter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c130",
+   "intent": "Exit pressed on the main screen as the first press, then Enter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c131",
+   "intent": "Cancel pressed on the main screen as the first press, then Enter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c132",
+   "intent": "Back pressed on the main screen after typing, then the article saved anyway",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c133",
+   "intent": "Back pressed on the main screen, then another article id typed on it",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c134",
+   "intent": "Enter pressed twice on the main screen with nothing typed, then saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c135",
+   "intent": "a function code the status does not define, pressed on the main screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c136",
+   "intent": "Save pressed twice: the second press after the article is written",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c137",
+   "intent": "after the article is written, another article id typed on 0100",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c138",
+   "intent": "the price corrected after the save was refused for being zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Le prix doit être supérieur à zéro"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Le prix doit être supérieur à zéro"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c139",
+   "intent": "a variant typed on tab 3, a detour through tab 2, then saved from tab 3",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c140",
+   "intent": "one field changed and the others left alone after visiting every tab",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c141",
+   "intent": "every field on all three tabs filled in one pass",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}
