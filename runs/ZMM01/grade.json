@@ -5,8 +5,6 @@
  "failed": 2,
  "drift": 0,
  "tables_restored": true,
- "seconds_old": 4.9,
- "seconds_new": 73.6,
  "results": [
   {
    "id": "c001",

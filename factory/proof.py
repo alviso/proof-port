@@ -158,7 +158,7 @@ next to it now. Check: <code>shasum -a 256 runs/{esc(tcode)}/sealed/bundle.json<
 <div class="grid">
  <div class="card"><span class="muted">Test author agent</span><b>{cost(tests)}</b>{g['cases']} cases from the extract alone</div>
  <div class="card"><span class="muted">Port agent</span><b>{cost(port)}</b>RAP object, OData V4 service, driver</div>
- <div class="card"><span class="muted">Grading</span><b>{g['seconds_old']} s + {g['seconds_new']} s</b>old screen, then new app</div>
+ <div class="card"><span class="muted">Grading</span><b>{g['cases']} cases, twice</b>through the old screen, then the new app</div>
 </div>
 <p class="muted">Files: <code>runs/{esc(tcode)}/extract/</code> (what the factory read), <code>sealed/</code> (cases and answers),
 <code>port/</code> (the new objects' sources, driver, the agent's report), <code>transcripts/</code> (both agents, cleaned of the machine's tool list),

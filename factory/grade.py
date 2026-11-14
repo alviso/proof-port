@@ -170,15 +170,12 @@ def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G",
     fields = table_fields(tcode)
     vol = volatile_fields(tcode)
     os.environ["ORACLE_REPORT"] = oracle_report
-    t0 = time.time()
     old = oracle.replay(tcode, cases, s)
-    t_old = time.time() - t0
     baseline = read_tables(s, fields)
     s.write_program(report_name, abap.build(report_name, after_report(baseline, fields)))
     service = load_json(os.path.join(ROOT, "runs", tcode, "port", "service.json"))
     driver = load_driver(tcode)
     results = []
-    t1 = time.time()
     for case in cases:
         client = RecordingClient(service["root"], s)
         crash = None
@@ -201,13 +198,12 @@ def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G",
                         "drift": drift})
         if on_case:
             on_case(results[-1])
-    t_new = time.time() - t1
     after = read_tables(s, fields)
     clean = all(normalise_rows(after[t], vol[t]) == normalise_rows(baseline[t], vol[t]) for t in fields)
     passed = sum(r["pass"] for r in results)
     return {"tcode": tcode, "cases": len(cases), "passed": passed, "failed": len(cases) - passed,
             "drift": sum(1 for r in results if r["drift"]), "tables_restored": clean,
-            "seconds_old": round(t_old, 1), "seconds_new": round(t_new, 1), "results": results}
+            "results": results}
 
 
 def main(argv):
