@@ -4,6 +4,7 @@ Credentials come from an env file with A4H_USER, A4H_PASSWORD and A4H_CLIENT (de
 SAP_ENV). The base URL is SAP_URL, by default a local SSH tunnel. One Sap object keeps one set of cookies, so it uses
 one security session on the server instead of one per request.
 """
+import atexit
 import base64
 import http.cookiejar
 import os
@@ -44,6 +45,19 @@ class Sap:
         self.jar = http.cookiejar.CookieJar()
         self.opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self.jar))
         self.csrf = None
+        atexit.register(self.logoff)
+
+    def logoff(self):
+        """End the session on the server when the process ends: each user may hold only so many, and an ended
+        session also releases any lock it held."""
+        if not len(self.jar):
+            return
+        try:
+            req = urllib.request.Request(f"{self.url}/sap/public/bc/icf/logoff?sap-client={self.client}")
+            self.opener.open(req, timeout=10).read()
+        except Exception:
+            pass
+        self.jar.clear()
 
     # -- plumbing ---------------------------------------------------------------------------------------------------
 
