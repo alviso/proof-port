@@ -11,3 +11,4 @@ __pycache__/
 # Sealed cases and the oracle's answers to them stay out until grading; only their hash is committed before the port
 runs/*/sealed/
 runs/*/work/
+runs/*/logs/

@@ -145,7 +145,7 @@ def replay(tcode, cases, s=None):
     for i in range(0, len(cases), BATCH):
         batch = cases[i:i + BATCH]
         body = snapshot + "\n" + "\n".join(case_abap(c, summary["program"]) for c in batch)
-        records = abap.run(s, "ZPP_ORACLE", body + "\n" + FORMS.replace("{tcode}", summary["tcode"]), types=TYPES)
+        records = abap.run(s, os.environ.get("ORACLE_REPORT", "ZPP_ORACLE"), body + "\n" + FORMS.replace("{tcode}", summary["tcode"]), types=TYPES)
         for kind, payload in records:
             if kind == "CASE":
                 r = json.loads(payload)
