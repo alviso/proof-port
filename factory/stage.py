@@ -5,6 +5,7 @@ it back from the published source. The old screen is SAP's WebGUI in a frame, si
 keyboard; the new app is factory/app.py, which must already be running (8100 for ZCRED, 8102 for ZMM01).
 
     python3 factory/stage.py [port]          -> http://127.0.0.1:8200/
+                                                http://127.0.0.1:8200/deck   the five-minute talk, stage page inside
 """
 import http.server
 import json
@@ -156,8 +157,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
         url = urllib.parse.urlparse(self.path)
         q = dict(urllib.parse.parse_qsl(url.query))
         tcode = q.get("t", "ZCRED").upper()
-        if url.path == "/":
-            with open(os.path.join(os.path.dirname(__file__), "stage.html")) as f:
+        if url.path in ("/", "/deck"):
+            page = "stage.html" if url.path == "/" else "deck.html"
+            with open(os.path.join(os.path.dirname(__file__), page)) as f:
+                return self.send(200, f.read(), "text/html; charset=utf-8")
+        proof = re.fullmatch(r"/proof/([A-Z0-9]+)", url.path)
+        if proof and proof.group(1) in SUBJECTS:
+            with open(os.path.join(ROOT, "runs", proof.group(1), "proof.html")) as f:
                 return self.send(200, f.read(), "text/html; charset=utf-8")
         if tcode not in SUBJECTS:
             return self.send(404, json.dumps({"error": "unknown subject"}))
