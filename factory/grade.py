@@ -39,7 +39,9 @@ def volatile_fields(tcode):
     out = {}
     for table, t in d["tables"].items():
         out[table] = {f["FIELDNAME"] for f in t["fields"]
-                      if f["ROLLNAME"] in VOLATILE_ROLLS or f["DATATYPE"] == "TIMS"}
+                      if f["ROLLNAME"] in VOLATILE_ROLLS or f["DATATYPE"] == "TIMS"
+                      # a time stamp typed directly, without a data element: DEC 15,0 or DEC 21,7
+                      or (f["DATATYPE"] == "DEC" and (int(f["LENG"]), int(f["DECIMALS"])) in ((15, 0), (21, 7)))}
     return out
 
 
