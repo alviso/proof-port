@@ -26,10 +26,19 @@ KEEP_INIT = ("type", "subtype", "model", "permissionMode", "claude_code_version"
 def clean_event(e):
     if e.get("type") == "system" and e.get("subtype") == "init":
         return {k: e[k] for k in KEEP_INIT if k in e}
-    text = json.dumps(e, ensure_ascii=False)
-    text = text.replace(HOME, "~")
-    text = re.sub(r"/private/tmp/claude-\d+/[^\s\"']*", "<scratch>", text)
-    return json.loads(text)
+    return scrub(e)
+
+
+def scrub(value):
+    """Clean every string inside an event, leaving its structure alone."""
+    if isinstance(value, dict):
+        return {k: scrub(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [scrub(v) for v in value]
+    if isinstance(value, str):
+        value = value.replace(HOME, "~")
+        return re.sub(r"/private/tmp/claude-\d+/[^\s\"'\\]*", "<scratch>", value)
+    return value
 
 
 def clean_transcript(src, dst):
