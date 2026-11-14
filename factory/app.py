@@ -27,9 +27,10 @@ INDEX = """<!doctype html><html><head><meta charset="utf-8"><meta name="viewport
 <script id="sap-ui-bootstrap" src="/sap/public/bc/ui5_ui5/resources/sap-ui-core.js"
   data-sap-ui-theme="sap_horizon" data-sap-ui-async="true" data-sap-ui-compatVersion="edge"
   data-sap-ui-resourceroots='{{"proofport": "./"}}' data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-  data-sap-ui-language="EN"></script></head>
+  data-sap-ui-language="EN"></script>
+<style>html, body {{ height: 100%; margin: 0; }}</style></head>
 <body class="sapUiBody sapUiSizeCompact"><div data-sap-ui-component data-name="proofport" data-id="app"
- data-settings='{{"id": "proofport"}}' style="height:100%"></div></body></html>"""
+ data-height="100%" data-width="100%" data-settings='{{"id": "proofport"}}' style="height:100%"></div></body></html>"""
 
 COMPONENT = """sap.ui.define(["sap/fe/core/AppComponent"], function (AppComponent) {
   "use strict";
@@ -45,6 +46,7 @@ def manifest(title, root, entity):
                                                     "settings": {"odataVersion": "4.0"}}}},
         "sap.ui": {"technology": "UI5", "deviceTypes": {"desktop": True, "tablet": True, "phone": True}},
         "sap.ui5": {
+            "flexEnabled": False,
             "dependencies": {"minUI5Version": "1.120.0", "libs": {"sap.m": {}, "sap.ui.core": {}, "sap.fe.templates": {}}},
             "models": {"": {"dataSource": "mainService", "preload": True,
                             "settings": {"operationMode": "Server", "autoExpandSelect": True, "earlyRequests": True}}},
@@ -121,8 +123,17 @@ def make_handler(tcode, s, service):
     return Handler
 
 
-def main_entity(s, root):
-    _, _, text = s.request("GET", root + "$metadata", accept="application/xml")
+def main_entity(s, tcode, service):
+    """The entity set the service definition exposes for the behavior definition's root, else the first one."""
+    roots = {n.upper() for k, n in service.get("objects", []) if k.upper() == "BDEF"}
+    src = os.path.join(ROOT, "runs", tcode, "port", "src")
+    for name in sorted(os.listdir(src)) if os.path.isdir(src) else []:
+        if name.lower().endswith(".srvd"):
+            with open(os.path.join(src, name)) as f:
+                for view, alias in re.findall(r"expose\s+(\w+)\s+as\s+(\w+)", f.read(), re.I):
+                    if view.upper() in roots:
+                        return alias
+    _, _, text = s.request("GET", service["root"] + "$metadata", accept="application/xml")
     sets = re.findall(r'<EntitySet Name="([^"]+)"', text)
     return sets[0] if sets else None
 
@@ -131,7 +142,7 @@ def main(tcode, port=8100):
     s = sap.Sap()
     with open(os.path.join(ROOT, "runs", tcode, "port", "service.json")) as f:
         service = json.load(f)
-    service.setdefault("entity", main_entity(s, service["root"]))
+    service.setdefault("entity", main_entity(s, tcode, service))
     server = http.server.ThreadingHTTPServer(("127.0.0.1", port), make_handler(tcode, s, service))
     print(f"{tcode} new app on http://127.0.0.1:{port}/ (entity set {service['entity']})", flush=True)
     server.serve_forever()
