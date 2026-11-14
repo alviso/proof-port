@@ -29,6 +29,8 @@ class Response:
 class Client:
     def __init__(self, service_root, s=None):
         self.s = s or sap.Sap()
+        if "://" not in service_root:  # a path on the factory's own SAP system
+            service_root = self.s.url + "/" + service_root.lstrip("/")
         self.root = service_root.rstrip("/") + "/"
         self.csrf = None
 

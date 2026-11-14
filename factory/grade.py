@@ -59,6 +59,19 @@ def lit(v):
     return "'" + str(v).replace("'", "''") + "'"
 
 
+def after_report(baseline, fields):
+    """One report per case: write every row as the case left it, then put the baseline back. Reading through the
+    data preview instead runs out of generated programs in one session after a few cases."""
+    lines = ["DATA lv_json TYPE string."]
+    for table in baseline:
+        t = table.lower()
+        lines.append(f"DATA lt_{t}_now TYPE STANDARD TABLE OF {t}.")
+        lines.append(f"SELECT * FROM {t} INTO TABLE lt_{t}_now.")
+        lines.append(f"lv_json = /ui2/cl_json=>serialize( data = lt_{t}_now ).")
+        lines.append(f"PERFORM out USING '{table}' lv_json.")
+    return "\n".join(lines) + "\n" + restore_report(baseline, fields)
+
+
 def restore_report(baseline, fields):
     lines = []
     for table, rows in baseline.items():
@@ -69,7 +82,6 @@ def restore_report(baseline, fields):
         lines.append(f"DELETE FROM {table.lower()}.")
         lines.append(f"INSERT {table.lower()} FROM TABLE lt_{table.lower()}.")
     lines.append("COMMIT WORK AND WAIT.")
-    lines.append("PERFORM out USING 'DONE' `{}`.")
     return "\n".join(lines)
 
 
@@ -158,8 +170,7 @@ def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G",
     old = oracle.replay(tcode, cases, s)
     t_old = time.time() - t0
     baseline = read_tables(s, fields)
-    restore = abap.build(report_name, restore_report(baseline, fields))
-    s.write_program(report_name, restore)
+    s.write_program(report_name, abap.build(report_name, after_report(baseline, fields)))
     service = load_json(os.path.join(ROOT, "runs", tcode, "port", "service.json"))
     driver = load_driver(tcode)
     results = []
@@ -171,8 +182,8 @@ def grade(tcode, cases, report_name="ZPP_RESTORE", oracle_report="ZPP_ORACLE_G",
             driver.run(client, case["steps"])
         except Exception as e:  # the driver failing is a result too
             crash = f"{type(e).__name__}: {e}"
-        new = {"messages": client.seen, "tables": read_tables(s, fields)}
-        s.run_program(report_name)
+        rows = {k: json.loads(v) for k, v in abap.parse(s.run_program(report_name)) if k in fields}
+        new = {"messages": client.seen, "tables": rows}
         diffs = compare(old[case["id"]], new, vol)
         if crash:
             diffs.insert(0, {"what": "driver crashed", "error": crash})
