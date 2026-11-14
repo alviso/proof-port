@@ -1,0 +1,42 @@
+{
+ "tcode": "ZCRED",
+ "program": "SAPMZCRED",
+ "start_screen": "0100",
+ "sources": [
+  "SAPMZCRED"
+ ],
+ "screens": [
+  "0100",
+  "0200"
+ ],
+ "message_classes": [],
+ "tables": [
+  "ZCR_CHANGELOG",
+  "ZCR_CUSTOMER",
+  "ZCR_LIMIT_RULE"
+ ],
+ "lock_objects": [],
+ "search_helps": [],
+ "standard_objects": {
+  "includes": [
+   "%_CABAP",
+   "<SYSINI>",
+   "CL_ABAP_DATADESCR=============CT",
+   "CL_ABAP_TYPEDESCR=============CT",
+   "CL_MESSAGE_HELPER=============CU",
+   "CX_DYNAMIC_CHECK==============CU",
+   "CX_ROOT=======================CU",
+   "CX_SY_MESSAGE_ILLEGAL_TEXT====CU",
+   "IF_MESSAGE====================IT",
+   "IF_T100_MESSAGE===============IT"
+  ],
+  "function_modules": [
+   "DDIF_FIELDINFO_GET",
+   "F4IF_INT_TABLE_VALUE_REQUEST"
+  ],
+  "transactions": [],
+  "message_classes": [],
+  "classes": []
+ },
+ "dynamic_calls": []
+}

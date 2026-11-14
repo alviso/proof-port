@@ -1,0 +1,242 @@
+{
+ "tables": {
+  "ZCR_CHANGELOG": {
+   "class": "TRANSP",
+   "text": "ZCRED change log",
+   "fields": [
+    {
+     "FIELDNAME": "MANDT",
+     "POSITION": "0001",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CLNT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "KUNNR",
+     "POSITION": "0002",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000010",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "CHANGED_AT",
+     "POSITION": "0003",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "DEC",
+     "LENG": "000021",
+     "DECIMALS": "000007",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "WAERS",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "OLD_LIMIT",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "CURR",
+     "LENG": "000015",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "NEW_LIMIT",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "CURR",
+     "LENG": "000015",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "UNAME",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000012",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "REASON",
+     "POSITION": "0008",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000060",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  },
+  "ZCR_CUSTOMER": {
+   "class": "TRANSP",
+   "text": "ZCRED customers",
+   "fields": [
+    {
+     "FIELDNAME": "MANDT",
+     "POSITION": "0001",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CLNT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "KUNNR",
+     "POSITION": "0002",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000010",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "NAME1",
+     "POSITION": "0003",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000035",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "WAERS",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CREDIT_LIMIT",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "CURR",
+     "LENG": "000015",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "BLOCKED",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000001",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "PRIORITY",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000001",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  },
+  "ZCR_LIMIT_RULE": {
+   "class": "TRANSP",
+   "text": "ZCRED limit thresholds",
+   "fields": [
+    {
+     "FIELDNAME": "MANDT",
+     "POSITION": "0001",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CLNT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "WAERS",
+     "POSITION": "0002",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "THRESHOLD",
+     "POSITION": "0003",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "CURR",
+     "LENG": "000015",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    }
+   ]
+  }
+ },
+ "data_elements": {},
+ "domains": {},
+ "lock_objects": [],
+ "search_helps": []
+}
