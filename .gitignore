@@ -1,0 +1,9 @@
+# Credentials never go in this repo
+.env
+*.env
+*.key
+*.pem
+
+__pycache__/
+*.pyc
+.DS_Store
