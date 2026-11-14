@@ -60,6 +60,24 @@ def customer(name):
     return bool(CUSTOMER.match(name or ""))
 
 
+def sql_in(s, template, names, size=40, maxlen=30):
+    """Run a query with an IN list in chunks: the data preview refuses long statements, and literals longer than
+    the column."""
+    rows = []
+    names = sorted(n for n in names if len(n) <= maxlen and re.fullmatch(r"[A-Z0-9_/]+", n))
+    for i in range(0, len(names), size):
+        chunk = names[i:i + size]
+        try:
+            rows += s.sql(template.format(names=", ".join(f"'{w}'" for w in chunk)))
+        except sap.SapError:
+            for w in chunk:  # find the one name the data preview won't take, and go on without it
+                try:
+                    rows += s.sql(template.format(names=f"'{w}'"))
+                except sap.SapError as e:
+                    print(f"skipped {w}: {str(e)[:120]}", file=sys.stderr)
+    return rows
+
+
 def extract(tcode, out_dir=None):
     s = sap.Sap()
     tcode = tcode.upper()
@@ -116,36 +134,34 @@ def extract(tcode, out_dir=None):
     candidates = sorted(w for w in words if customer(w))
     dictionary = {"tables": {}, "data_elements": {}, "domains": {}, "lock_objects": [], "search_helps": []}
     if candidates:
-        names = ", ".join(f"'{w}'" for w in candidates)
-        for r in s.sql(f"SELECT TABNAME, TABCLASS FROM DD02L WHERE TABNAME IN ({names}) AND AS4LOCAL = 'A'"):
+        for r in sql_in(s, "SELECT TABNAME, TABCLASS FROM DD02L WHERE TABNAME IN ({names}) AND AS4LOCAL = 'A'",
+                        candidates):
             t = r["TABNAME"]
             fields = s.sql(f"SELECT FIELDNAME, POSITION, KEYFLAG, ROLLNAME, CHECKTABLE, INTTYPE, DATATYPE, LENG, "
                            f"DECIMALS, NOTNULL FROM DD03L WHERE TABNAME = '{t}' AND AS4LOCAL = 'A' ORDER BY POSITION")
             text = s.sql(f"SELECT DDTEXT FROM DD02T WHERE TABNAME = '{t}' AND DDLANGUAGE = 'E'")
             dictionary["tables"][t] = {"class": r["TABCLASS"], "text": text[0]["DDTEXT"] if text else "",
                                        "fields": fields}
-        for r in s.sql(f"SELECT VIEWNAME, ROOTTAB FROM DD25L WHERE VIEWNAME IN ({names}) AND AGGTYPE = 'E' "
-                       f"AND AS4LOCAL = 'A'"):
+        for r in sql_in(s, "SELECT VIEWNAME, ROOTTAB FROM DD25L WHERE VIEWNAME IN ({names}) AND AGGTYPE = 'E' "
+                           "AND AS4LOCAL = 'A'", candidates, maxlen=16):
             dictionary["lock_objects"].append({"name": r["VIEWNAME"], "table": r["ROOTTAB"]})
-        for r in s.sql(f"SELECT SHLPNAME FROM DD30L WHERE SHLPNAME IN ({names}) AND AS4LOCAL = 'A'"):
+        for r in sql_in(s, "SELECT SHLPNAME FROM DD30L WHERE SHLPNAME IN ({names}) AND AS4LOCAL = 'A'", candidates):
             dictionary["search_helps"].append(r["SHLPNAME"])
     rolls = sorted({f["ROLLNAME"] for t in dictionary["tables"].values() for f in t["fields"] if customer(f["ROLLNAME"])})
     if rolls:
-        names = ", ".join(f"'{w}'" for w in rolls)
-        for r in s.sql(f"SELECT ROLLNAME, DOMNAME, DATATYPE, LENG, DECIMALS FROM DD04L WHERE ROLLNAME IN ({names}) "
-                       f"AND AS4LOCAL = 'A'"):
+        for r in sql_in(s, "SELECT ROLLNAME, DOMNAME, DATATYPE, LENG, DECIMALS FROM DD04L WHERE ROLLNAME IN ({names}) "
+                           "AND AS4LOCAL = 'A'", rolls):
             dictionary["data_elements"][r["ROLLNAME"]] = dict(r)
-        for r in s.sql(f"SELECT ROLLNAME, DDTEXT, SCRTEXT_M, SCRTEXT_L FROM DD04T WHERE ROLLNAME IN ({names}) "
-                       f"AND DDLANGUAGE = 'E'"):
+        for r in sql_in(s, "SELECT ROLLNAME, DDTEXT, SCRTEXT_M, SCRTEXT_L FROM DD04T WHERE ROLLNAME IN ({names}) "
+                           "AND DDLANGUAGE = 'E'", rolls):
             dictionary["data_elements"].setdefault(r["ROLLNAME"], {}).update(r)
     doms = sorted({d.get("DOMNAME", "") for d in dictionary["data_elements"].values() if customer(d.get("DOMNAME"))})
     if doms:
-        names = ", ".join(f"'{w}'" for w in doms)
-        for r in s.sql(f"SELECT DOMNAME, DATATYPE, LENG, DECIMALS, OUTPUTLEN, LOWERCASE, SIGNFLAG, ENTITYTAB "
-                       f"FROM DD01L WHERE DOMNAME IN ({names}) AND AS4LOCAL = 'A'"):
+        for r in sql_in(s, "SELECT DOMNAME, DATATYPE, LENG, DECIMALS, OUTPUTLEN, LOWERCASE, SIGNFLAG, ENTITYTAB "
+                           "FROM DD01L WHERE DOMNAME IN ({names}) AND AS4LOCAL = 'A'", doms):
             dictionary["domains"][r["DOMNAME"]] = dict(r, values=[])
-        for r in s.sql(f"SELECT DOMNAME, VALPOS, DOMVALUE_L, DOMVALUE_H, DDTEXT FROM DD07V WHERE DOMNAME IN ({names}) "
-                       f"AND DDLANGUAGE = 'E'"):
+        for r in sql_in(s, "SELECT DOMNAME, VALPOS, DOMVALUE_L, DOMVALUE_H, DDTEXT FROM DD07V WHERE DOMNAME IN ({names}) "
+                           "AND DDLANGUAGE = 'E'", doms):
             dictionary["domains"].setdefault(r["DOMNAME"], {"values": []})["values"].append(r)
 
     # SAP's own objects the code uses, by name only.
@@ -159,12 +175,14 @@ def extract(tcode, out_dir=None):
         "classes": sorted({c.upper() for c in re.findall(r"\b(CL_\w+|CX_\w+|IF_\w+)\b", code, re.I)}),
     }
     dynamic = [line.strip() for line in code.splitlines()
-               if re.search(r"(CALL\s+FUNCTION|SUBMIT|PERFORM|CALL\s+TRANSACTION)\s+\(?[a-z_]\w*\)?\s", line, re.I)
-               and not re.search(r"'", line)]
+               if re.search(r"(PERFORM|SUBMIT|CALL\s+METHOD|CREATE\s+OBJECT\s+\w+\s+TYPE)\s*\(", line, re.I)
+               or re.search(r"CALL\s+(FUNCTION|TRANSACTION)\s+[a-z_]\w*", line, re.I)]
 
     summary = {"tcode": tcode, "program": prog, "start_screen": start, "sources": sorted(sources),
                "screens": [scr["HEAD"]["SCREEN"] if "HEAD" in scr else "?" for scr in screens],
-               "message_classes": sorted(messages), "tables": sorted(dictionary["tables"]),
+               "message_classes": sorted(messages),
+               "tables": sorted(t for t, v in dictionary["tables"].items() if v["class"] == "TRANSP"),
+               "structures": sorted(t for t, v in dictionary["tables"].items() if v["class"] != "TRANSP"),
                "lock_objects": dictionary["lock_objects"], "search_helps": dictionary["search_helps"],
                "standard_objects": standard, "dynamic_calls": dynamic}
     for name, data in [("summary", summary), ("screens", screens), ("status", status), ("textpool", textpool),

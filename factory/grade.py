@@ -46,7 +46,7 @@ def volatile_fields(tcode):
 def table_fields(tcode):
     d = load_json(os.path.join(ROOT, "runs", tcode, "extract", "dictionary.json"))
     return {t: [f["FIELDNAME"] for f in v["fields"] if not f["FIELDNAME"].startswith(".")] for t, v in
-            d["tables"].items()}
+            d["tables"].items() if v["class"] == "TRANSP"}
 
 
 def read_tables(s, fields):

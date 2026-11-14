@@ -66,6 +66,12 @@ class Sap:
                 self.csrf = None
                 self.fetch_csrf()
                 return self.request(method, path, body, content_type, accept, stateful, retry=False)
+            if e.code == 400 and retry and not stateful and "Session Timed Out or Not Found" in text:
+                # The server dropped this session (after a short dump, for one): start a new one.
+                self.jar.clear()
+                self.csrf = None
+                self.fetch_csrf()
+                return self.request(method, path, body, content_type, accept, stateful, retry=False)
             raise SapError(f"{method} {path}: HTTP {e.code}: {short(text)}") from None
 
     def fetch_csrf(self):

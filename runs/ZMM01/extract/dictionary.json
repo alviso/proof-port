@@ -1,0 +1,684 @@
+{
+ "tables": {
+  "ZRET_S_ART": {
+   "class": "INTTAB",
+   "text": "Retail Z - Article screen structure (ZMM01)",
+   "fields": [
+    {
+     "FIELDNAME": "ARTICLE_ID",
+     "POSITION": "0001",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_ID",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ARTICLE_NAME",
+     "POSITION": "0002",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_NAME",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000060",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ARTICLE_TYPE",
+     "POSITION": "0003",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_TYPE",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000004",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "BASE_UOM",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "MEINS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "UNIT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ACTIVE_FLAG",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ACTIVE_FLAG",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000001",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "PRICE",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_PRICE",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "DEC",
+     "LENG": "000013",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CURRENCY",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "WAERS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "GENERIC_ARTICLE_ID",
+     "POSITION": "0008",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000010",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  },
+  "ZRET_S_ART_VAR": {
+   "class": "INTTAB",
+   "text": "Retail Z - Article variant line (table control ZMM01)",
+   "fields": [
+    {
+     "FIELDNAME": "MARK",
+     "POSITION": "0001",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000001",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ARTICLE_ID",
+     "POSITION": "0002",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_ID",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "VARIANT_ID",
+     "POSITION": "0003",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000004",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "COLOR",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "SIZE_CODE",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000006",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "EAN",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_EAN",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000018",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "PRICE",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_PRICE",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "DEC",
+     "LENG": "000013",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CURRENCY",
+     "POSITION": "0008",
+     "KEYFLAG": "",
+     "ROLLNAME": "WAERS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  },
+  "ZRET_T_ART_VAR": {
+   "class": "TRANSP",
+   "text": "Retail Z - Article variants (ZMM01 test bench)",
+   "fields": [
+    {
+     "FIELDNAME": "MANDT",
+     "POSITION": "0001",
+     "KEYFLAG": "X",
+     "ROLLNAME": "MANDT",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CLNT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "ARTICLE_ID",
+     "POSITION": "0002",
+     "KEYFLAG": "X",
+     "ROLLNAME": "ZDE_RET_ARTICLE_ID",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "VARIANT_ID",
+     "POSITION": "0003",
+     "KEYFLAG": "X",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000004",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "COLOR",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "SIZE_CODE",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000006",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "EAN",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_EAN",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000018",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "PRICE",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_PRICE",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "DEC",
+     "LENG": "000013",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CURRENCY",
+     "POSITION": "0008",
+     "KEYFLAG": "",
+     "ROLLNAME": "WAERS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  },
+  "ZRET_T_ARTICLE": {
+   "class": "TRANSP",
+   "text": "Retail Z - Article master data",
+   "fields": [
+    {
+     "FIELDNAME": "MANDT",
+     "POSITION": "0001",
+     "KEYFLAG": "X",
+     "ROLLNAME": "MANDT",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CLNT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "ARTICLE_ID",
+     "POSITION": "0002",
+     "KEYFLAG": "X",
+     "ROLLNAME": "ZDE_RET_ARTICLE_ID",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": "X"
+    },
+    {
+     "FIELDNAME": "ARTICLE_NAME",
+     "POSITION": "0003",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_NAME",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000060",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "GENERIC_ARTICLE_ID",
+     "POSITION": "0004",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000010",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "COLOR",
+     "POSITION": "0005",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000020",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ART_SIZE",
+     "POSITION": "0006",
+     "KEYFLAG": "",
+     "ROLLNAME": "",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000010",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ARTICLE_TYPE",
+     "POSITION": "0007",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ARTICLE_TYPE",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000004",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "EAN",
+     "POSITION": "0008",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_EAN",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000018",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "BASE_UOM",
+     "POSITION": "0009",
+     "KEYFLAG": "",
+     "ROLLNAME": "MEINS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "UNIT",
+     "LENG": "000003",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "PRICE",
+     "POSITION": "0010",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_PRICE",
+     "CHECKTABLE": "",
+     "INTTYPE": "P",
+     "DATATYPE": "DEC",
+     "LENG": "000013",
+     "DECIMALS": "000002",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CURRENCY",
+     "POSITION": "0011",
+     "KEYFLAG": "",
+     "ROLLNAME": "WAERS",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CUKY",
+     "LENG": "000005",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "ACTIVE_FLAG",
+     "POSITION": "0012",
+     "KEYFLAG": "",
+     "ROLLNAME": "ZDE_RET_ACTIVE_FLAG",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000001",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CREATED_BY",
+     "POSITION": "0013",
+     "KEYFLAG": "",
+     "ROLLNAME": "SYUNAME",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000012",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CREATED_ON",
+     "POSITION": "0014",
+     "KEYFLAG": "",
+     "ROLLNAME": "ERDAT",
+     "CHECKTABLE": "",
+     "INTTYPE": "D",
+     "DATATYPE": "DATS",
+     "LENG": "000008",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CHANGED_BY",
+     "POSITION": "0015",
+     "KEYFLAG": "",
+     "ROLLNAME": "SYUNAME",
+     "CHECKTABLE": "",
+     "INTTYPE": "C",
+     "DATATYPE": "CHAR",
+     "LENG": "000012",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    },
+    {
+     "FIELDNAME": "CHANGED_ON",
+     "POSITION": "0016",
+     "KEYFLAG": "",
+     "ROLLNAME": "AEDAT",
+     "CHECKTABLE": "",
+     "INTTYPE": "D",
+     "DATATYPE": "DATS",
+     "LENG": "000008",
+     "DECIMALS": "000000",
+     "NOTNULL": ""
+    }
+   ]
+  }
+ },
+ "data_elements": {
+  "ZDE_RET_ACTIVE_FLAG": {
+   "ROLLNAME": "ZDE_RET_ACTIVE_FLAG",
+   "DOMNAME": "ZDO_RET_ACTIVE_FLAG",
+   "DATATYPE": "CHAR",
+   "LENG": "000001",
+   "DECIMALS": "000000",
+   "DDTEXT": "Retail active Flag",
+   "SCRTEXT_M": "Active Flag",
+   "SCRTEXT_L": "Active / inactive indicator"
+  },
+  "ZDE_RET_ARTICLE_ID": {
+   "ROLLNAME": "ZDE_RET_ARTICLE_ID",
+   "DOMNAME": "ZDO_RET_ARTICLE_ID",
+   "DATATYPE": "CHAR",
+   "LENG": "000020",
+   "DECIMALS": "000000",
+   "DDTEXT": "Retail article identifier",
+   "SCRTEXT_M": "Article",
+   "SCRTEXT_L": "Retail article identifier"
+  },
+  "ZDE_RET_ARTICLE_NAME": {
+   "ROLLNAME": "ZDE_RET_ARTICLE_NAME",
+   "DOMNAME": "ZDO_RET_ARTICLE_NAME",
+   "DATATYPE": "CHAR",
+   "LENG": "000060",
+   "DECIMALS": "000000",
+   "DDTEXT": "Retail article name",
+   "SCRTEXT_M": "Article Name",
+   "SCRTEXT_L": "Retail article name"
+  },
+  "ZDE_RET_ARTICLE_TYPE": {
+   "ROLLNAME": "ZDE_RET_ARTICLE_TYPE",
+   "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+   "DATATYPE": "CHAR",
+   "LENG": "000004",
+   "DECIMALS": "000000",
+   "DDTEXT": "Retail article type",
+   "SCRTEXT_M": "Article Type",
+   "SCRTEXT_L": "Retail article type"
+  },
+  "ZDE_RET_EAN": {
+   "ROLLNAME": "ZDE_RET_EAN",
+   "DOMNAME": "ZDO_RET_EAN",
+   "DATATYPE": "CHAR",
+   "LENG": "000018",
+   "DECIMALS": "000000",
+   "DDTEXT": "Retail EAN / barcode",
+   "SCRTEXT_M": "EAN / Barcode",
+   "SCRTEXT_L": "European Article Number / Barcode"
+  },
+  "ZDE_RET_PRICE": {
+   "ROLLNAME": "ZDE_RET_PRICE",
+   "DOMNAME": "ZDO_RET_PRICE",
+   "DATATYPE": "DEC",
+   "LENG": "000013",
+   "DECIMALS": "000002",
+   "DDTEXT": "Retail unit price",
+   "SCRTEXT_M": "Unit price",
+   "SCRTEXT_L": "Retail unit price"
+  }
+ },
+ "domains": {
+  "ZDO_RET_ACTIVE_FLAG": {
+   "DOMNAME": "ZDO_RET_ACTIVE_FLAG",
+   "DATATYPE": "CHAR",
+   "LENG": "000001",
+   "DECIMALS": "000000",
+   "OUTPUTLEN": "000001",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": [
+    {
+     "DOMNAME": "ZDO_RET_ACTIVE_FLAG",
+     "VALPOS": "0002",
+     "DOMVALUE_L": "",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Inactive"
+    },
+    {
+     "DOMNAME": "ZDO_RET_ACTIVE_FLAG",
+     "VALPOS": "0001",
+     "DOMVALUE_L": "X",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Active"
+    }
+   ]
+  },
+  "ZDO_RET_ARTICLE_ID": {
+   "DOMNAME": "ZDO_RET_ARTICLE_ID",
+   "DATATYPE": "CHAR",
+   "LENG": "000020",
+   "DECIMALS": "000000",
+   "OUTPUTLEN": "000020",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": []
+  },
+  "ZDO_RET_ARTICLE_NAME": {
+   "DOMNAME": "ZDO_RET_ARTICLE_NAME",
+   "DATATYPE": "CHAR",
+   "LENG": "000060",
+   "DECIMALS": "000000",
+   "OUTPUTLEN": "000060",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": []
+  },
+  "ZDO_RET_ARTICLE_TYPE": {
+   "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+   "DATATYPE": "CHAR",
+   "LENG": "000004",
+   "DECIMALS": "000000",
+   "OUTPUTLEN": "000004",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": [
+    {
+     "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+     "VALPOS": "0003",
+     "DOMVALUE_L": "ACCE",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Accessory"
+    },
+    {
+     "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+     "VALPOS": "0004",
+     "DOMVALUE_L": "CONS",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Consumable"
+    },
+    {
+     "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+     "VALPOS": "0001",
+     "DOMVALUE_L": "HARD",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Hardgood"
+    },
+    {
+     "DOMNAME": "ZDO_RET_ARTICLE_TYPE",
+     "VALPOS": "0002",
+     "DOMVALUE_L": "SOFT",
+     "DOMVALUE_H": "",
+     "DDTEXT": "Softgood"
+    }
+   ]
+  },
+  "ZDO_RET_EAN": {
+   "DOMNAME": "ZDO_RET_EAN",
+   "DATATYPE": "CHAR",
+   "LENG": "000018",
+   "DECIMALS": "000000",
+   "OUTPUTLEN": "000018",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": []
+  },
+  "ZDO_RET_PRICE": {
+   "DOMNAME": "ZDO_RET_PRICE",
+   "DATATYPE": "DEC",
+   "LENG": "000013",
+   "DECIMALS": "000002",
+   "OUTPUTLEN": "000017",
+   "LOWERCASE": "",
+   "SIGNFLAG": "",
+   "ENTITYTAB": "",
+   "values": []
+  }
+ },
+ "lock_objects": [],
+ "search_helps": []
+}

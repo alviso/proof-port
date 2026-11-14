@@ -1,0 +1,72 @@
+[
+ {
+  "OBJ_TYPE": "A",
+  "OBJ_CODE": "000001",
+  "SUB_CODE": "",
+  "TEXTTYPE": "T",
+  "TEXT": "ZMM01 main status"
+ },
+ {
+  "OBJ_TYPE": "B",
+  "OBJ_CODE": "000001",
+  "SUB_CODE": "0001",
+  "TEXTTYPE": "T",
+  "TEXT": "ZMM01 main status"
+ },
+ {
+  "OBJ_TYPE": "C",
+  "OBJ_CODE": "MAIN",
+  "SUB_CODE": "",
+  "TEXTTYPE": "T",
+  "TEXT": "ZMM01 main status"
+ },
+ {
+  "OBJ_TYPE": "F",
+  "OBJ_CODE": "BACK",
+  "SUB_CODE": "001",
+  "TEXTTYPE": "M",
+  "TEXT": "Back"
+ },
+ {
+  "OBJ_TYPE": "F",
+  "OBJ_CODE": "CANC",
+  "SUB_CODE": "001",
+  "TEXTTYPE": "M",
+  "TEXT": "Cancel"
+ },
+ {
+  "OBJ_TYPE": "F",
+  "OBJ_CODE": "ENTER",
+  "SUB_CODE": "001",
+  "TEXTTYPE": "M",
+  "TEXT": "Enter"
+ },
+ {
+  "OBJ_TYPE": "F",
+  "OBJ_CODE": "EXIT",
+  "SUB_CODE": "001",
+  "TEXTTYPE": "M",
+  "TEXT": "Exit"
+ },
+ {
+  "OBJ_TYPE": "F",
+  "OBJ_CODE": "SAVE",
+  "SUB_CODE": "001",
+  "TEXTTYPE": "M",
+  "TEXT": "Save"
+ },
+ {
+  "OBJ_TYPE": "P",
+  "OBJ_CODE": "000001",
+  "SUB_CODE": "",
+  "TEXTTYPE": "T",
+  "TEXT": "ZMM01 main status"
+ },
+ {
+  "OBJ_TYPE": "T",
+  "OBJ_CODE": "T_MAIN",
+  "SUB_CODE": "",
+  "TEXTTYPE": "T",
+  "TEXT": "&1"
+ }
+]

@@ -1,0 +1,55 @@
+{
+ "tcode": "ZMM01",
+ "program": "SAPMZRET_ART",
+ "start_screen": "0100",
+ "sources": [
+  "MZRET_ARTF01",
+  "MZRET_ARTI01",
+  "MZRET_ARTO01",
+  "MZRET_ARTTOP",
+  "SAPMZRET_ART"
+ ],
+ "screens": [
+  "0100",
+  "0200",
+  "0210",
+  "0220",
+  "0230"
+ ],
+ "message_classes": [],
+ "tables": [
+  "ZRET_T_ARTICLE",
+  "ZRET_T_ART_VAR"
+ ],
+ "structures": [
+  "ZRET_S_ART",
+  "ZRET_S_ART_VAR"
+ ],
+ "lock_objects": [],
+ "search_helps": [],
+ "standard_objects": {
+  "includes": [
+   "%_CABAP",
+   "%_CCXTAB",
+   "%_CVRM",
+   "<CONTRO>",
+   "<SYSINI>",
+   "CL_ABAP_DATADESCR=============CT",
+   "CL_ABAP_TYPEDESCR=============CT",
+   "CL_MESSAGE_HELPER=============CU",
+   "CX_DYNAMIC_CHECK==============CU",
+   "CX_ROOT=======================CU",
+   "CX_SY_MESSAGE_ILLEGAL_TEXT====CU",
+   "IF_MESSAGE====================IT",
+   "IF_T100_MESSAGE===============IT"
+  ],
+  "function_modules": [
+   "POPUP_TO_CONFIRM",
+   "VRM_SET_VALUES"
+  ],
+  "transactions": [],
+  "message_classes": [],
+  "classes": []
+ },
+ "dynamic_calls": []
+}
