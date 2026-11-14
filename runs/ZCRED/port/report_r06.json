@@ -1,0 +1,48 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.5,
+ "results": [
+  {
+   "id": "p061",
+   "intent": "a decimal separator alone",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p062",
+   "intent": "a bang in front of digits still clears",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p063",
+   "intent": "leading zeros",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p064",
+   "intent": "a customer number with a trailing blank",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

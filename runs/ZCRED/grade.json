@@ -1,0 +1,1851 @@
+{
+ "tcode": "ZCRED",
+ "cases": 140,
+ "passed": 139,
+ "failed": 1,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 5.5,
+ "seconds_new": 89.1,
+ "results": [
+  {
+   "id": "c001",
+   "intent": "A known unblocked customer and Enter reaches the second screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c002",
+   "intent": "Enter with an empty customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c003",
+   "intent": "A customer number that is not in the table",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c004",
+   "intent": "The blocked customer is refused",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c005",
+   "intent": "A customer number typed in lower case",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c006",
+   "intent": "Lower case with trailing blanks",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c007",
+   "intent": "A leading blank before the customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c008",
+   "intent": "A trailing blank after the customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c009",
+   "intent": "A customer number one character short",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c010",
+   "intent": "A customer number one character too long for the key value",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c011",
+   "intent": "A customer number filling all ten characters of the field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c012",
+   "intent": "A customer number one character longer than the field holds",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c013",
+   "intent": "An exclamation mark clears the customer field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c014",
+   "intent": "Leading zeros in front of a real customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c015",
+   "intent": "Digits only, without the letter",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c016",
+   "intent": "A punctuation character inside the customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c017",
+   "intent": "A wildcard after the customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c018",
+   "intent": "The blocked customer typed in lower case",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c019",
+   "intent": "The blocked customer with a trailing blank",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c020",
+   "intent": "The priority customer opens the second screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c021",
+   "intent": "The customer whose currency has no threshold row opens the second screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c022",
+   "intent": "Save pressed on the first screen with a valid customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c023",
+   "intent": "Back pressed on the first screen with a valid customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c024",
+   "intent": "Exit pressed on the first screen with a valid customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c025",
+   "intent": "Cancel pressed on the first screen with a valid customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c026",
+   "intent": "Back pressed on the first screen with an unknown customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c027",
+   "intent": "Exit pressed on the first screen with an unknown customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c028",
+   "intent": "Cancel pressed on the first screen with an unknown customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c029",
+   "intent": "Back pressed on the first screen with the blocked customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c030",
+   "intent": "Exit pressed on the first screen with the blocked customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c031",
+   "intent": "Save pressed on the first screen with nothing typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c032",
+   "intent": "A function code the status does not define, on the first screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c033",
+   "intent": "Save with nothing typed, so the proposed limit is still the current one",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c034",
+   "intent": "The current limit typed again explicitly",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c035",
+   "intent": "The current limit typed with decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c036",
+   "intent": "The current limit typed with a thousands separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c037",
+   "intent": "The current limit typed with separator and decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c038",
+   "intent": "Save with nothing typed for the customer in the currency without a rule",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c039",
+   "intent": "That customer's current limit typed again",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c040",
+   "intent": "Save with nothing typed for the priority customer, whose limit field is closed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c041",
+   "intent": "An unchanged limit with a reason filled in anyway",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c042",
+   "intent": "The current limit typed with a leading zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c043",
+   "intent": "Just under the currency threshold, no reason given",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c044",
+   "intent": "Exactly at the currency threshold, no reason given",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c045",
+   "intent": "Exactly at the threshold, typed with a thousands separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c046",
+   "intent": "One cent over the threshold with no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c047",
+   "intent": "One cent over the threshold in grouped notation, no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c048",
+   "intent": "One cent over the threshold with a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c049",
+   "intent": "Well over the threshold with no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c050",
+   "intent": "Well over the threshold with a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c051",
+   "intent": "Over the threshold with a reason of blanks only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c052",
+   "intent": "Over the threshold with a single dot as the reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c053",
+   "intent": "A reason in mixed case, to see whether the case is kept",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c054",
+   "intent": "A reason of exactly sixty characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c055",
+   "intent": "A reason one character longer than the field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c056",
+   "intent": "A reason with leading blanks",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c057",
+   "intent": "A reason with trailing blanks",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c058",
+   "intent": "A reason given although the limit stays under the threshold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c059",
+   "intent": "A reason given at exactly the threshold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c060",
+   "intent": "A plain increase well under the threshold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c061",
+   "intent": "A decrease of the limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c062",
+   "intent": "The smallest positive limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c063",
+   "intent": "A limit of zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c064",
+   "intent": "A limit of zero typed with decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c065",
+   "intent": "The limit field left empty",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c066",
+   "intent": "The limit field cleared with an exclamation mark",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c067",
+   "intent": "A limit of zero for the customer in the currency without a rule",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c068",
+   "intent": "Zero with decimals for that same customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c069",
+   "intent": "A limit of zero with a reason given",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c070",
+   "intent": "A limit of one",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c071",
+   "intent": "A third decimal place on a near-zero limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c072",
+   "intent": "A limit of one for the customer whose currency has no rule row",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c073",
+   "intent": "One cent, just over the missing rule's zero threshold, no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c074",
+   "intent": "The same one cent with a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c075",
+   "intent": "An increase for that customer with no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c076",
+   "intent": "An increase for that customer with a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c077",
+   "intent": "A decrease for that customer with no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c078",
+   "intent": "A decrease for that customer with a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c079",
+   "intent": "A grouped amount with decimals for that customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c080",
+   "intent": "A grouped thousand for that customer, no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c081",
+   "intent": "That customer's current limit typed in grouped notation",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c082",
+   "intent": "Zero for that customer with a reason given",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c083",
+   "intent": "A negative limit with a leading minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c084",
+   "intent": "A negative limit with SAP's trailing minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c085",
+   "intent": "One cent below zero, leading minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c086",
+   "intent": "One cent below zero, trailing minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c087",
+   "intent": "The current limit with a minus in front of it",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c088",
+   "intent": "Negative zero, leading minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c089",
+   "intent": "Negative zero, trailing minus",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c090",
+   "intent": "Two minus signs",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c091",
+   "intent": "A dot used as the decimal separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c092",
+   "intent": "A number ending in a dot",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c093",
+   "intent": "A grouped thousand",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c094",
+   "intent": "A grouped thousand with decimals",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c095",
+   "intent": "A blank inside the number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c096",
+   "intent": "Letters in the number field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c097",
+   "intent": "A letter in the middle of the number",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "messages",
+     "old": [
+      "Enter a numeric value",
+      "Formatting error in the field GV_NEW_LIMIT; see next message"
+     ],
+     "new": [
+      "Formatting error in the field GV_NEW_LIMIT; see next message",
+      "Input must be in the format _.___.___.___.__~,__"
+     ]
+    }
+   ],
+   "old_messages": [
+    "Enter a numeric value",
+    "Formatting error in the field GV_NEW_LIMIT; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c098",
+   "intent": "A number starting with the decimal comma",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c099",
+   "intent": "A number ending in the decimal comma",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c100",
+   "intent": "A number with one decimal place",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c101",
+   "intent": "A number with three decimal places",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c102",
+   "intent": "The largest amount the field pattern allows",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c103",
+   "intent": "One integer digit more than the field pattern allows",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Entry too long (enter in the format _.___.___.___.__~,__)",
+    "Formatting error in the field GV_NEW_LIMIT; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Entry too long (enter in the format _.___.___.___.__~,__)",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c104",
+   "intent": "An explicit plus sign in front of the amount",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a numeric value",
+    "Formatting error in the field GV_NEW_LIMIT; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a numeric value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c105",
+   "intent": "Typing a new limit for the priority customer, whose field is closed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c106",
+   "intent": "A reason only for the priority customer, then save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c107",
+   "intent": "Enter then save for the priority customer, nothing typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c108",
+   "intent": "Back on the second screen for the priority customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c109",
+   "intent": "Exit on the second screen for the priority customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c110",
+   "intent": "Typing into the displayed current limit of the priority customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c111",
+   "intent": "Typing into the displayed customer name",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c112",
+   "intent": "Typing into the displayed currency",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c113",
+   "intent": "Typing into the displayed current limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c114",
+   "intent": "Typing the customer number on the second screen, where it does not exist",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c115",
+   "intent": "Save typed into the command field while Enter is pressed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c116",
+   "intent": "A field name that is on neither screen",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c117",
+   "intent": "A limit typed, Enter pressed, then saved without retyping it",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c118",
+   "intent": "A limit typed, Enter, then a different limit typed and saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c119",
+   "intent": "An over-threshold limit and a reason, then the reason cleared before saving",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c120",
+   "intent": "An over-threshold limit first, the reason added on the next press",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c121",
+   "intent": "An over-threshold limit confirmed with Enter, then saved with no reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c122",
+   "intent": "Enter with nothing typed, then save with nothing typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c123",
+   "intent": "Three Enters on the second screen before saving a new limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c124",
+   "intent": "A limit typed, Back pressed, then save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c125",
+   "intent": "A limit typed, Exit pressed, then save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c126",
+   "intent": "A limit typed, Cancel pressed, then save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c127",
+   "intent": "An over-threshold limit with a reason, Cancel, then save without the reason retyped",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c128",
+   "intent": "A save, then a second save with another limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c129",
+   "intent": "A save, then an attempt to pick another customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c130",
+   "intent": "A reason typed before any limit, the limit on the next press",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c131",
+   "intent": "A limit typed, Enter, then the field cleared and saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c132",
+   "intent": "A limit typed, Enter, then the current limit typed back and saved",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c133",
+   "intent": "A function code the status does not define, on the second screen, then save",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c134",
+   "intent": "Enter alone on the second screen, stopping there",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c135",
+   "intent": "Cancel alone on the second screen, stopping there",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c136",
+   "intent": "Back alone on the second screen, stopping there",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c137",
+   "intent": "Exit alone on the second screen, stopping there",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c138",
+   "intent": "Back on the second screen for the customer whose currency has no rule",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "c139",
+   "intent": "A reason of blanks typed over a real reason before saving over the threshold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "c140",
+   "intent": "A reason with umlauts and punctuation over the threshold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

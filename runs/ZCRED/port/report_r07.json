@@ -1,0 +1,48 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.3,
+ "results": [
+  {
+   "id": "p066",
+   "intent": "a reason of exactly sixty characters",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p067",
+   "intent": "a reason with leading blanks",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p070",
+   "intent": "save written with an equals sign",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p071",
+   "intent": "save written in lower case",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

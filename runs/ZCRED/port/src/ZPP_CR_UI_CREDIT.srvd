@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCRED credit limit change'
+define service ZPP_CR_UI_CREDIT {
+  expose ZPP_CR_C_CUSTOMER  as Customer;
+  expose ZPP_CR_C_CHANGELOG as ChangeLog;
+  expose ZPP_CR_C_LIMITRULE as LimitRule;
+}

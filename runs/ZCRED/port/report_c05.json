@@ -1,0 +1,133 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 1,
+ "failed": 3,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.3,
+ "results": [
+  {
+   "id": "p016",
+   "intent": "a bang clears the limit, which then blocks the customer",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051021.066",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051023.03",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p017",
+   "intent": "letters where a number belongs",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "messages",
+     "old": [
+      "Formatting error in the field GV_NEW_LIMIT; see next message",
+      "Input must be in the format _.___.___.___.__~,__"
+     ],
+     "new": [
+      "Enter a numeric value",
+      "Formatting error in the field GV_NEW_LIMIT; see next message"
+     ]
+    }
+   ],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a numeric value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p018",
+   "intent": "an empty limit is zero",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051021.082",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051025.586",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p019",
+   "intent": "save without touching the limit",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+[
+ {"id": "p002", "intent": "above the threshold without a reason is refused",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "15000"}, "ok": "SAVE"}]},
+ {"id": "p003", "intent": "above the threshold with a reason saves",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "15000", "GV_REASON": "board approved"}, "ok": "SAVE"}]},
+ {"id": "p004", "intent": "the same limit again is refused",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "5000"}, "ok": "SAVE"}]}
+]

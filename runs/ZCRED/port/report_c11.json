@@ -1,0 +1,90 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 4.7,
+ "results": [
+  {
+   "id": "p038",
+   "intent": "more precision than the field holds",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p039",
+   "intent": "an explicit plus sign",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Enter a numeric value",
+    "Formatting error in the field GV_NEW_LIMIT; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Enter a numeric value",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p040",
+   "intent": "a thousands separator in the wrong place",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p043",
+   "intent": "more characters than the field takes",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

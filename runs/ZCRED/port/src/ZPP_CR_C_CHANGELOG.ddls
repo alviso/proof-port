@@ -1,0 +1,29 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'ZCRED credit limit change log'
+@UI.headerInfo: { typeName: 'Change', typeNamePlural: 'Changes' }
+define view entity ZPP_CR_C_CHANGELOG
+  as select from zcr_changelog
+{
+      @UI.lineItem: [ { position: 10, label: 'Customer' } ]
+  key kunnr      as Customer,
+
+      @UI.lineItem: [ { position: 20, label: 'Changed at' } ]
+  key changed_at as ChangedAt,
+
+      @Semantics.amount.currencyCode: 'Currency'
+      @UI.lineItem: [ { position: 30, label: 'Old limit' } ]
+      old_limit  as OldLimit,
+
+      @Semantics.amount.currencyCode: 'Currency'
+      @UI.lineItem: [ { position: 40, label: 'New limit' } ]
+      new_limit  as NewLimit,
+
+      @UI.lineItem: [ { position: 50, label: 'Currency' } ]
+      waers      as Currency,
+
+      @UI.lineItem: [ { position: 60, label: 'Reason' } ]
+      reason     as Reason,
+
+      @UI.lineItem: [ { position: 70, label: 'Changed by' } ]
+      uname      as ChangedBy
+}

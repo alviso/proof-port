@@ -1,0 +1,100 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 2,
+ "failed": 2,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.2,
+ "seconds_new": 5.9,
+ "results": [
+  {
+   "id": "p066",
+   "intent": "a reason of exactly sixty characters",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051513.93",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "1.2345678901234568e+58",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051516.25",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "1.2345678901234568e+58",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p067",
+   "intent": "a reason with leading blanks",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051513.94",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "late",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051517.785",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "late",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p068",
+   "intent": "typing into a display only field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p069",
+   "intent": "the second screen before the first",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "sealed_cases": 140,
+ "leaks": [],
+ "notes": [
+  "tool call Bash excludes sealed: {\"command\": \"ls -la && echo \\\"---FACTORY---\\\" && ls -la factory/ && echo \\\"---RUNS---\\\" && find runs -maxdepth 3 -not -path \\\"*/sealed*\\\" -not -path \\\"*/work*\\\"",
+  "tool call Bash excludes /work: {\"command\": \"ls -la && echo \\\"---FACTORY---\\\" && ls -la factory/ && echo \\\"---RUNS---\\\" && find runs -maxdepth 3 -not -path \\\"*/sealed*\\\" -not -path \\\"*/work*\\\""
+ ],
+ "forbidden_calls": []
+}

@@ -1,0 +1,79 @@
+{
+ "tcode": "ZCRED",
+ "cases": 3,
+ "passed": 2,
+ "failed": 1,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 4.2,
+ "results": [
+  {
+   "id": "p002",
+   "intent": "above the threshold without a reason is refused",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p003",
+   "intent": "above the threshold with a reason saves",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114050651.637",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "board approved",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114050655.074",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "board approved",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p004",
+   "intent": "the same limit again is refused",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

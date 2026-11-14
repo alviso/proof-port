@@ -1,0 +1,48 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.3,
+ "results": [
+  {
+   "id": "p018",
+   "intent": "an empty limit is zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p023",
+   "intent": "save pressed on the first screen only opens the customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p026",
+   "intent": "a customer number typed in lower case",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p028",
+   "intent": "a reason keeps the case it was typed in",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

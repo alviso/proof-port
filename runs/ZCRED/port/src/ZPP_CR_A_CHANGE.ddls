@@ -1,0 +1,8 @@
+@EndUserText.label: 'New credit limit and the reason for it'
+define abstract entity ZPP_CR_A_CHANGE
+{
+      @EndUserText.label: 'New credit limit'
+  NewLimit : abap.dec(15,2);
+      @EndUserText.label: 'Reason for change'
+  Reason   : abap.char(60);
+}

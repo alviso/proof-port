@@ -1,0 +1,121 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 2,
+ "failed": 2,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 0.9,
+ "seconds_new": 5.2,
+ "results": [
+  {
+   "id": "p028",
+   "intent": "a reason keeps the case it was typed in",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051231.02",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "Risk ok, CFO said yes",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051233.086",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "Risk ok, CFO said yes",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p029",
+   "intent": "exactly at the threshold needs no reason",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051231.027",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "10000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051234.46",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "10000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p030",
+   "intent": "one cent over the threshold needs a reason",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p031",
+   "intent": "three decimals where the field has two",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Input must be in the format _.___.___.___.__~,__"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Input must be in the format _.___.___.___.__~,__",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

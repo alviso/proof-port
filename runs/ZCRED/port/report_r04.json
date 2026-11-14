@@ -1,0 +1,48 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.4,
+ "results": [
+  {
+   "id": "p036",
+   "intent": "a trailing decimal separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p037",
+   "intent": "a leading decimal separator",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p041",
+   "intent": "a thousands separator in the right place",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p042",
+   "intent": "the largest number the field shows",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

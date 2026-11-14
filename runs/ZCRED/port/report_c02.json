@@ -1,0 +1,109 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 3,
+ "failed": 1,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 4.9,
+ "results": [
+  {
+   "id": "p001",
+   "intent": "below the threshold saves without a reason",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114050925.438",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114050927.51",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p005",
+   "intent": "a negative limit typed as -100",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p006",
+   "intent": "a negative limit typed the SAP way, 100-",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Formatting error in the field GV_NEW_LIMIT; see next message",
+    "Specify positive values only"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Specify positive values only",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p007",
+   "intent": "a customer that does not exist",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+[
+ {
+  "object": "ZPP_CR_BP_CUSTOMER",
+  "change": "line 189: '<' became '>='",
+  "failing_cases": 77,
+  "caught": true,
+  "examples": [
+   "c033",
+   "c034",
+   "c035",
+   "c036",
+   "c037",
+   "c038",
+   "c039",
+   "c040"
+  ],
+  "restored": true
+ },
+ {
+  "object": "ZPP_CR_BP_CUSTOMER",
+  "change": "line 60: the check 'IF sy-subrc <> 0' switched off",
+  "failing_cases": 16,
+  "caught": true,
+  "examples": [
+   "c002",
+   "c003",
+   "c007",
+   "c009",
+   "c010",
+   "c011",
+   "c013",
+   "c014"
+  ],
+  "restored": true
+ },
+ {
+  "object": "ZPP_CR_BP_CUSTOMER",
+  "change": "line 65: message text 'Customer not found' became 'Customer not founx'",
+  "failing_cases": 16,
+  "caught": true,
+  "examples": [
+   "c002",
+   "c003",
+   "c007",
+   "c009",
+   "c010",
+   "c011",
+   "c013",
+   "c014"
+  ],
+  "restored": true
+ }
+]

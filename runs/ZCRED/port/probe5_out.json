@@ -1,0 +1,808 @@
+{
+ "u001": {
+  "subrc": 1001,
+  "last": {
+   "type": "A",
+   "id": "00",
+   "number": "359",
+   "text": "The transaction was terminated by the user",
+   "screen": ""
+  },
+  "messages": [
+   {
+    "type": "A",
+    "id": "00",
+    "number": "359",
+    "text": "The transaction was terminated by the user",
+    "screen": "SAPMZCRED 0100"
+   }
+  ],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u002": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u005": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "CHANGED_AT": 20261114045501.57,
+     "WAERS": "USD",
+     "OLD_LIMIT": 5000.0,
+     "NEW_LIMIT": 7000.0,
+     "UNAME": "MCP",
+     "REASON": ""
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 7000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u006": {
+  "subrc": 1001,
+  "last": {
+   "type": "A",
+   "id": "00",
+   "number": "359",
+   "text": "The transaction was terminated by the user",
+   "screen": ""
+  },
+  "messages": [
+   {
+    "type": "A",
+    "id": "00",
+    "number": "359",
+    "text": "The transaction was terminated by the user",
+    "screen": "SAPMZCRED 0200"
+   }
+  ],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u007": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u008": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "CHANGED_AT": 20261114045501.594,
+     "WAERS": "USD",
+     "OLD_LIMIT": 5000.0,
+     "NEW_LIMIT": 7000.0,
+     "UNAME": "MCP",
+     "REASON": ""
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 7000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u009": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "CHANGED_AT": 20261114045501.6,
+     "WAERS": "USD",
+     "OLD_LIMIT": 5000.0,
+     "NEW_LIMIT": 7000.0,
+     "UNAME": "MCP",
+     "REASON": ""
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 7000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u010": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "CHANGED_AT": 20261114045501.61,
+     "WAERS": "USD",
+     "OLD_LIMIT": 5000.0,
+     "NEW_LIMIT": 7000.0,
+     "UNAME": "MCP",
+     "REASON": ""
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 7000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u011": {
+  "subrc": 1001,
+  "last": {
+   "type": "E",
+   "id": "00",
+   "number": "001",
+   "text": "Customer not found",
+   "screen": ""
+  },
+  "messages": [
+   {
+    "type": "E",
+    "id": "00",
+    "number": "001",
+    "text": "Customer not found",
+    "screen": "SAPMZCRED 0100"
+   }
+  ],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u012": {
+  "subrc": 1001,
+  "last": {
+   "type": "E",
+   "id": "00",
+   "number": "001",
+   "text": "Credit limit is unchanged",
+   "screen": ""
+  },
+  "messages": [
+   {
+    "type": "E",
+    "id": "00",
+    "number": "001",
+    "text": "Credit limit is unchanged",
+    "screen": "SAPMZCRED 0200"
+   }
+  ],
+  "tables": {
+   "ZCR_CHANGELOG": [],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u013": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "CHANGED_AT": 20261114045501.63,
+     "WAERS": "EUR",
+     "OLD_LIMIT": 2000.0,
+     "NEW_LIMIT": 2500.5,
+     "UNAME": "MCP",
+     "REASON": "growth"
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 2500.5,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ },
+ "u014": {
+  "subrc": 0,
+  "last": {
+   "type": "",
+   "id": "",
+   "number": "",
+   "text": "",
+   "screen": ""
+  },
+  "messages": [],
+  "tables": {
+   "ZCR_CHANGELOG": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "CHANGED_AT": 20261114045501.637,
+     "WAERS": "EUR",
+     "OLD_LIMIT": 2000.0,
+     "NEW_LIMIT": 0,
+     "UNAME": "MCP",
+     "REASON": ""
+    }
+   ],
+   "ZCR_CUSTOMER": [
+    {
+     "MANDT": "001",
+     "KUNNR": "C100",
+     "NAME1": "Acme Supply",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 5000.0,
+     "BLOCKED": "",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C200",
+     "NAME1": "Blocked Trading",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 1000.0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C300",
+     "NAME1": "Priority Partner",
+     "WAERS": "USD",
+     "CREDIT_LIMIT": 50000.0,
+     "BLOCKED": "",
+     "PRIORITY": "V"
+    },
+    {
+     "MANDT": "001",
+     "KUNNR": "C400",
+     "NAME1": "Euro Handel",
+     "WAERS": "EUR",
+     "CREDIT_LIMIT": 0,
+     "BLOCKED": "X",
+     "PRIORITY": ""
+    }
+   ],
+   "ZCR_LIMIT_RULE": [
+    {
+     "MANDT": "001",
+     "WAERS": "USD",
+     "THRESHOLD": 10000.0
+    }
+   ]
+  }
+ }
+}

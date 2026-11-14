@@ -1,0 +1,69 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.3,
+ "seconds_new": 5.1,
+ "results": [
+  {
+   "id": "p046",
+   "intent": "a reason of blanks only",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p047",
+   "intent": "a reason longer than the field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p048",
+   "intent": "a customer number with leading blanks",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p049",
+   "intent": "a bang in the customer number",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer not found"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer not found"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

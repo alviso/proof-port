@@ -1,0 +1,27 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'ZCRED customer credit limit'
+@Metadata.allowExtensions: true
+@ObjectModel.semanticKey: [ 'Customer' ]
+define root view entity ZPP_CR_C_CUSTOMER
+  as select from zcr_customer
+  association [0..*] to ZPP_CR_C_CHANGELOG as _Log on $projection.Customer = _Log.Customer
+{
+  key kunnr        as Customer,
+      name1        as CustomerName,
+      waers        as Currency,
+
+      @Semantics.amount.currencyCode: 'Currency'
+      credit_limit as CreditLimit,
+
+      blocked      as Blocked,
+      priority     as Priority,
+
+      // The old screen 0200 shows the new limit as display only for a priority customer
+      // (module lock_priority). The service says so here; the app must not offer the field.
+      case priority
+        when 'V' then cast( 1 as abap.int1 )
+        else          cast( 7 as abap.int1 )
+      end          as CreditLimitFc,
+
+      _Log
+}

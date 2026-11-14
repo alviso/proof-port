@@ -1,0 +1,96 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 3,
+ "failed": 1,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.2,
+ "seconds_new": 4.2,
+ "results": [
+  {
+   "id": "p058",
+   "intent": "fourteen digits, more than the field can hold",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Entry too long (enter in the format _.___.___.___.__~,__)",
+    "Formatting error in the field GV_NEW_LIMIT; see next message"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Formatting error in the field GV_NEW_LIMIT; see next message",
+     "from": "ui"
+    },
+    {
+     "type": "E",
+     "text": "Entry too long (enter in the format _.___.___.___.__~,__)",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p059",
+   "intent": "a system command that leaves the transaction",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "The transaction was terminated by the user"
+   ],
+   "new_messages": [
+    {
+     "type": "A",
+     "text": "The transaction was terminated by the user",
+     "from": "ui"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p060",
+   "intent": "a system command that leaves quietly",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p061",
+   "intent": "a decimal separator alone",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051440.914",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051445.863",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "0.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

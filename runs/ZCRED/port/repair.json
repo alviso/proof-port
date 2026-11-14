@@ -1,0 +1,12 @@
+[
+ {"id": "z001", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z002", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z003", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z004", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z005", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z006", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z007", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z008", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z009", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]},
+ {"id": "z010", "intent": "repair", "steps": [{"screen": "9999", "fields": {}, "ok": "/00"}]}
+]

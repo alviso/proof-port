@@ -1,0 +1,34 @@
+managed with additional save implementation in class zpp_cr_bp_customer unique;
+
+define behavior for ZPP_CR_C_CUSTOMER alias Customer
+persistent table zcr_customer
+lock master
+{
+  field ( readonly ) CustomerName, Currency, Blocked, Priority, CreditLimitFc;
+  field ( features : instance ) CreditLimit;
+
+  // the limit is changed with the action only, as on the old screen; nothing writes the row directly
+  internal update;
+
+  // screen 0100: type a customer number and press any key
+  static action ChooseCustomer parameter ZPP_CR_A_SELECT;
+
+  // screen 0200: the new limit and the reason, then SAVE
+  action ChangeCreditLimit parameter ZPP_CR_A_CHANGE;
+
+  // FORM save_change: a new limit of zero blocks the customer
+  determination blockWhenZero on modify { field CreditLimit; }
+
+  // MODULE check_change: every check of the old screen, in the old order
+  validation checkChange on save { field CreditLimit; }
+
+  mapping for zcr_customer
+  {
+    Customer     = kunnr;
+    CustomerName = name1;
+    Currency     = waers;
+    CreditLimit  = credit_limit;
+    Blocked      = blocked;
+    Priority     = priority;
+  }
+}

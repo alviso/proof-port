@@ -1,0 +1,114 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 2,
+ "failed": 2,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 8.0,
+ "results": [
+  {
+   "id": "p041",
+   "intent": "a thousands separator in the right place",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051325.023",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "1234.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051327.07",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "1234.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p042",
+   "intent": "the largest number the field shows",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051325.035",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "12345678901.23",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "big",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051328.47",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "12345678901.23",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "big",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p044",
+   "intent": "the current limit typed with separators",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p045",
+   "intent": "a reason cleared with a bang",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

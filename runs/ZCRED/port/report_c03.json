@@ -1,0 +1,69 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 4,
+ "failed": 0,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 5.1,
+ "results": [
+  {
+   "id": "p008",
+   "intent": "a blocked customer cannot be opened",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Customer is blocked"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Customer is blocked"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p009",
+   "intent": "a priority customer's limit cannot be typed",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p010",
+   "intent": "a priority customer saved as loaded is unchanged",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "Credit limit is unchanged"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "Credit limit is unchanged"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p011",
+   "intent": "a currency with no threshold row needs a reason for anything above zero",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  }
+ ]
+}

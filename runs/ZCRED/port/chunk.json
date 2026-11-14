@@ -1,0 +1,14 @@
+[
+ {"id": "p011", "intent": "a currency with no threshold row needs a reason for anything above zero",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C400"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "3000"}, "ok": "SAVE"}]},
+ {"id": "p019", "intent": "save without touching the limit",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {}, "ok": "SAVE"}]},
+ {"id": "p030", "intent": "one cent over the threshold needs a reason",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "10000,01"}, "ok": "SAVE"}]},
+ {"id": "p050", "intent": "a priority customer with only a reason typed",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C300"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_REASON": "vip raise"}, "ok": "SAVE"}]}
+]

@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName:       'Customer',
+                typeNamePlural: 'Customers',
+                title:          { value: 'CustomerName' },
+                description:    { value: 'Customer' } },
+  presentationVariant: [ { sortOrder: [ { by: 'Customer', direction: #ASC } ] } ]
+}
+
+annotate view ZPP_CR_C_CUSTOMER with
+{
+  @UI.facet: [ { id:       'Limit',
+                 purpose:  #STANDARD,
+                 type:     #IDENTIFICATION_REFERENCE,
+                 label:    'Credit limit',
+                 position: 10 },
+               { id:            'Log',
+                 purpose:       #STANDARD,
+                 type:          #LINEITEM_REFERENCE,
+                 label:         'Changes',
+                 position:      20,
+                 targetElement: '_Log' } ]
+  @UI: { lineItem:     [ { position: 10, importance: #HIGH, label: 'Customer' },
+                           { type: #FOR_ACTION, dataAction: 'ChooseCustomer',
+                             label: 'Open a customer number' },
+                           { type: #FOR_ACTION, dataAction: 'ChangeCreditLimit',
+                             label: 'Change credit limit' } ],
+         identification: [ { position: 10, label: 'Customer' },
+                           { type: #FOR_ACTION, dataAction: 'ChangeCreditLimit',
+                             label: 'Change credit limit' } ],
+         selectionField: [ { position: 10 } ] }
+  Customer;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH, label: 'Name' } ],
+         identification: [ { position: 20, label: 'Name' } ] }
+  CustomerName;
+
+  @UI: { lineItem:       [ { position: 30, label: 'Currency' } ],
+         identification: [ { position: 30, label: 'Currency' } ],
+         selectionField: [ { position: 20 } ] }
+  Currency;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH, label: 'Credit limit' } ],
+         identification: [ { position: 40, label: 'Credit limit' } ] }
+  CreditLimit;
+
+  @UI: { lineItem:       [ { position: 50, label: 'Blocked' } ],
+         identification: [ { position: 50, label: 'Blocked' } ] }
+  Blocked;
+
+  @UI: { lineItem:       [ { position: 60, label: 'Priority' } ],
+         identification: [ { position: 60, label: 'Priority' } ] }
+  Priority;
+
+  @UI.hidden: true
+  CreditLimitFc;
+}

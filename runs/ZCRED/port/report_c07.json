@@ -1,0 +1,74 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 3,
+ "failed": 1,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.0,
+ "seconds_new": 4.9,
+ "results": [
+  {
+   "id": "p020",
+   "intent": "back on the second screen does nothing",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p021",
+   "intent": "cancel on the second screen does nothing",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p022",
+   "intent": "exit on the first screen still opens the customer",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p023",
+   "intent": "save pressed on the first screen only opens the customer",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051158.14",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051203.65",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

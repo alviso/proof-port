@@ -1,0 +1,107 @@
+{
+ "tcode": "ZCRED",
+ "cases": 4,
+ "passed": 2,
+ "failed": 2,
+ "drift": 0,
+ "tables_restored": true,
+ "seconds_old": 1.1,
+ "seconds_new": 5.3,
+ "results": [
+  {
+   "id": "p054",
+   "intent": "the reason typed on a later press",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051423.836",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "later reason",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051426.008",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "15000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "later reason",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p055",
+   "intent": "a reason typed and then cleared before saving",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [
+    "A reason is required for this limit"
+   ],
+   "new_messages": [
+    {
+     "type": "E",
+     "text": "A reason is required for this limit"
+    }
+   ],
+   "drift": null
+  },
+  {
+   "id": "p056",
+   "intent": "back and then a save",
+   "pass": false,
+   "diffs": [
+    {
+     "what": "rows of ZCR_CHANGELOG",
+     "old_only": [
+      {
+       "CHANGED_AT": "20261114051423.85",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ],
+     "new_only": [
+      {
+       "CHANGED_AT": "20261114051429.01",
+       "KUNNR": "C100",
+       "NEW_LIMIT": "7000.0",
+       "OLD_LIMIT": "5000.0",
+       "REASON": "",
+       "UNAME": "MCP",
+       "WAERS": "USD"
+      }
+     ]
+    }
+   ],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  },
+  {
+   "id": "p057",
+   "intent": "the limit typed on the screen that has no such field",
+   "pass": true,
+   "diffs": [],
+   "old_messages": [],
+   "new_messages": [],
+   "drift": null
+  }
+ ]
+}

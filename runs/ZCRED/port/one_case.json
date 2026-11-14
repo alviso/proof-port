@@ -1,0 +1,5 @@
+[
+ {"id": "p001", "intent": "a limit below the threshold saves without a reason",
+  "steps": [{"screen": "0100", "fields": {"GV_KUNNR": "C100"}, "ok": "/00"},
+            {"screen": "0200", "fields": {"GV_NEW_LIMIT": "7000"}, "ok": "SAVE"}]}
+]

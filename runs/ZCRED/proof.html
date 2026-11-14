@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Proof Port: ZCRED</title>
+<style>
+:root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#6b6a65; --line:#e3e0d8; --ok:#1f7a4d; --bad:#b3261e; --card:#ffffff; }
+@media (prefers-color-scheme: dark) { :root { --bg:#151513; --fg:#ecebe6; --muted:#a3a29b; --line:#33322e;
+  --ok:#5cc28d; --bad:#f2827b; --card:#1d1d1a; } }
+body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, system-ui, sans-serif; margin:0; }
+main { max-width:1100px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:28px; margin:0 0 4px; } h2 { font-size:19px; margin:36px 0 10px; }
+.muted { color:var(--muted); } .score { font-size:44px; font-weight:700; margin:18px 0 4px; }
+.ok { color:var(--ok); } .bad { color:var(--bad); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.card b { display:block; font-size:22px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+td, th { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line); }
+code { font-size:13px; word-break:break-all; }
+.wrap { overflow-x:auto; }
+</style></head><body><main>
+<h1>Proof Port: ZCRED</h1>
+<div class="muted">The old SAP transaction graded its rewrite, on cases sealed before the rewrite began.</div>
+<div class="score bad">139 of 140</div>
+<div>sealed cases behave the same on the old screen and in the new app (messages and every table row).</div>
+
+<div class="grid" style="margin-top:20px">
+ <div class="card"><span class="muted">Mutants caught</span><b>3 of 3</b>edits that break the port on purpose</div>
+ <div class="card"><span class="muted">Sealed</span><b>20:23 UTC 3e0feb1</b>commit 3e0feb1; port started 20:23 local</div>
+ <div class="card"><span class="muted">Port agent saw the cases</span><b class="ok">no</b>transcript searched for all 140 cases</div>
+ <div class="card"><span class="muted">Tables after grading</span><b class="ok">as before</b>every case started from the same data</div>
+</div>
+
+<h2>The seal</h2>
+<p>SHA-256 of the sealed bundle (cases and the old transaction's answers): <code>8422a314f054c9df5123365ee9900b3043eee961d1fb35bcf16d7c6c8f6465a4</code>.
+It was committed in <code>runs/ZCRED/SEAL.md</code> before the port agent started; the bundle itself is published
+next to it now. Check: <code>shasum -a 256 runs/ZCRED/sealed/bundle.json</code>.
+The old transaction answered every case as it did when sealed.</p>
+
+<h2>Every difference</h2>
+<div class="wrap"><table><tr><th>Case</th><th>What it checks</th><th>Difference</th></tr><tr><td>c097</td><td>A letter in the middle of the number</td><td>The old screen said &#x27;Enter a numeric value&#x27;, &#x27;Formatting error in the field GV_NEW_LIMIT; see next message&#x27;; the new app said &#x27;Formatting error in the field GV_NEW_LIMIT; see next message&#x27;, &#x27;Input must be in the format _.___.___.___.__~,__&#x27;.</td></tr></table></div>
+
+<h2>Mutants</h2>
+<div class="wrap"><table><tr><th>Change to the port</th><th>Result</th></tr><tr><td>line 189: &#x27;&lt;&#x27; became &#x27;&gt;=&#x27;</td><td>caught by 77 cases</td></tr><tr><td>line 60: the check &#x27;IF sy-subrc &lt;&gt; 0&#x27; switched off</td><td>caught by 16 cases</td></tr><tr><td>line 65: message text &#x27;Customer not found&#x27; became &#x27;Customer not founx&#x27;</td><td>caught by 16 cases</td></tr></table></div>
+
+<h2>What was checked and what wasn't</h2>
+<p>Checked, for every case: the error messages (by text) and every row of ZCR_CHANGELOG, ZCR_CUSTOMER, ZCR_LIMIT_RULE after the old screen and after the new app, each from the same starting data.
+No calls into the old transaction were found in the port or its driver.</p>
+<p>Not checked:</p><ul><li>Batch input proves rules, not display. What a screen shows (names, greyed fields, titles) is only seen through what it accepts and what it saves.</li><li>A success message sent just before the transaction ends never reaches batch input, so for saves the rows are the evidence, not that message.</li><li>Batch input stops at the first error, so retyping after a refusal on the same screen is not tested.</li><li>F4 value help does not run under batch input.</li><li>Timestamps written by either side are compared as present or empty, not by value.</li><li>Messages are compared by their text when they are errors. Warnings and information messages are not compared.</li></ul>
+
+<h2>How it ran</h2>
+<div class="grid">
+ <div class="card"><span class="muted">Test author agent</span><b>3.35 USD, 8 min</b>140 cases from the extract alone</div>
+ <div class="card"><span class="muted">Port agent</span><b>45.97 USD, 70 min</b>RAP object, OData V4 service, driver</div>
+ <div class="card"><span class="muted">Grading</span><b>5.5 s + 89.1 s</b>old screen, then new app</div>
+</div>
+<p class="muted">Files: <code>runs/ZCRED/extract/</code> (what the factory read), <code>sealed/</code> (cases and answers),
+<code>port/</code> (the new objects' sources, driver, the agent's report), <code>logs/</code> and <code>work/</code> (both agents' transcripts),
+<code>grade.json</code>, <code>mutants.json</code>.</p>
+</main></body></html>

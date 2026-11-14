@@ -1,0 +1,15 @@
+{
+ "root": "/sap/opu/odata4/sap/zpp_cr_ui_credit_o4/srvd/sap/zpp_cr_ui_credit/0001/",
+ "objects": [
+  ["DDLS", "ZPP_CR_C_CUSTOMER"],
+  ["DDLS", "ZPP_CR_C_CHANGELOG"],
+  ["DDLS", "ZPP_CR_C_LIMITRULE"],
+  ["DDLS", "ZPP_CR_A_SELECT"],
+  ["DDLS", "ZPP_CR_A_CHANGE"],
+  ["BDEF", "ZPP_CR_C_CUSTOMER"],
+  ["CLAS", "ZPP_CR_BP_CUSTOMER"],
+  ["DDLX", "ZPP_CR_C_CUSTOMER"],
+  ["SRVD", "ZPP_CR_UI_CREDIT"],
+  ["SRVB", "ZPP_CR_UI_CREDIT_O4"]
+ ]
+}

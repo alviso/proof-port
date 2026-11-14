@@ -1,0 +1,6 @@
+@EndUserText.label: 'Customer to open'
+define abstract entity ZPP_CR_A_SELECT
+{
+      @EndUserText.label: 'Customer'
+  Customer : abap.char(10);
+}
