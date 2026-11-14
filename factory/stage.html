@@ -147,9 +147,8 @@ function render(p) {
     $("big").textContent = p.phase === "asking the old screen" ? "…" :
       `${same} of ${p.running ? p.results.length : p.total} the same`;
   }
-  const secs = p.started ? Math.round(((p.running ? Date.now() / 1000 : p.finished) - p.started)) : 0;
-  $("phase").textContent = p.running ? `${p.phase}, ${p.results.length} of ${p.total} graded, ${secs} s` :
-    (p.phase === "done" ? `${p.total} cases through the old screen and the new app, ${secs} s` : "");
+  $("phase").textContent = p.running ? `${p.phase}, ${p.results.length} of ${p.total} graded` :
+    (p.phase === "done" ? `${p.total} cases through the old screen and the new app` : "");
   $("fails").innerHTML = p.results.filter(r => !r.pass).map(r =>
     `<li><b>${esc(r.id)}</b>${esc(r.intent)}: ${esc(r.diffs.join("; "))}</li>`).join("");
   $("err").textContent = p.error || "";
